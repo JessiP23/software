@@ -3,8 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu } from 'lucide-react';
-
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu } from 'lucide-react'
 
 const Icon = ({ name, color }) => {
   const icons = {
@@ -40,33 +39,76 @@ const Icon = ({ name, color }) => {
 
 const ProjectCard = ({ project, isActive, onClick }) => (
   <motion.div
-      whileHover={{ scale: 1.02 }}
-      className={`bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 cursor-pointer transition-shadow duration-300 ${
-        isActive ? 'ring-2 ring-blue-500 shadow-xl' : 'shadow-lg'
-      }`}
-      onClick={onClick}
-    >
-      <div className="flex items-center space-x-4 mb-4">
-        {project.icon}
-        <h3 className="text-xl font-bold">{project.title}</h3>
+    whileHover={{ scale: 1.02 }}
+    className={`bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 cursor-pointer transition-shadow duration-300 ${
+      isActive ? 'ring-2 ring-blue-500 shadow-xl' : 'shadow-lg'
+    }`}
+    onClick={onClick}
+  >
+    <div className="flex items-center space-x-4 mb-4">
+      {project.icon}
+      <h3 className="text-xl font-bold">{project.title}</h3>
+    </div>
+    <p className="text-gray-300 mb-4">{project.description}</p>
+    <div className="flex flex-wrap gap-2 mb-4">
+      {project.tags.map((tag, index) => (
+        <span key={index} className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-sm font-semibold">
+          {tag}
+        </span>
+      ))}
+    </div>
+    <div className="grid grid-cols-3 gap-4 mt-4">
+      {Object.entries(project.stats).map(([key, value]) => (
+        <div key={key} className="text-center">
+          <div className="text-lg font-bold text-blue-400">{value}</div>
+          <div className="text-xs text-gray-400 capitalize">{key}</div>
+        </div>
+      ))}
+    </div>
+  </motion.div>
+)
+
+const DiagonalProjectShowcase = ({ project, index }) => (
+  <motion.div
+    initial={{ opacity: 0, y: 50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ delay: index * 0.2 }}
+    className="relative overflow-hidden rounded-3xl shadow-2xl mb-16"
+  >
+    <div className="grid grid-cols-1 md:grid-cols-2">
+      <div className="relative h-64 md:h-auto">
+        <Image
+          src={project.image}
+          alt={project.title}
+          layout="fill"
+          objectFit="cover"
+          className="z-0"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-transparent z-10" />
       </div>
-      <p className="text-gray-300 mb-4">{project.description}</p>
-      <div className="flex flex-wrap gap-2 mb-4">
-        {project.tags.map((tag, index) => (
-          <span key={index} className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-sm font-semibold">
-            {tag}
-          </span>
-        ))}
+      <div className="relative bg-gray-900 p-8 md:p-12 flex flex-col justify-center z-20">
+        <h3 className="text-3xl font-bold mb-4 text-white">{project.title}</h3>
+        <p className="text-gray-300 mb-6">{project.description}</p>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {project.tags.map((tag, index) => (
+            <span key={index} className="px-3 py-1 bg-blue-600 rounded-full text-sm font-semibold text-white">
+              {tag}
+            </span>
+          ))}
+        </div>
+        <a
+          href={project.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 w-fit"
+        >
+          <span>View Project</span>
+          <ExternalLink className="ml-2 w-5 h-5" />
+        </a>
       </div>
-      <div className="grid grid-cols-3 gap-4 mt-4">
-        {Object.entries(project.stats).map(([key, value]) => (
-          <div key={key} className="text-center">
-            <div className="text-lg font-bold text-blue-400">{value}</div>
-            <div className="text-xs text-gray-400 capitalize">{key}</div>
-          </div>
-        ))}
-      </div>
-    </motion.div>
+    </div>
+    <div className="absolute top-0 bottom-0 right-0 w-1/2 bg-gray-900 transform -skew-x-12 origin-top-left z-10 hidden md:block" />
+  </motion.div>
 )
 
 export default function EnhancedAIProjectsShowcase() {
@@ -108,8 +150,31 @@ export default function EnhancedAIProjectsShowcase() {
         deployments: "100+"
       }
     }
-  ];
+  ]
 
+  const showcaseProjects = [
+    {
+      title: "AI-Driven Financial Forecasting",
+      description: "Revolutionize financial planning with our AI-powered forecasting tool. Predict market trends, optimize investments, and make data-driven decisions with unparalleled accuracy.",
+      tags: ["Finance", "Machine Learning", "Predictive Analytics"],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "#financial-forecasting"
+    },
+    {
+      title: "Intelligent Customer Service Bot",
+      description: "Enhance customer satisfaction with our advanced NLP-powered chatbot. Handle inquiries 24/7, reduce response times, and provide personalized support at scale.",
+      tags: ["NLP", "Customer Service", "Chatbot"],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "#customer-service-bot"
+    },
+    {
+      title: "Smart City Traffic Management",
+      description: "Optimize urban traffic flow with our AI-driven traffic management system. Reduce congestion, improve safety, and decrease emissions using real-time data analysis and predictive modeling.",
+      tags: ["Smart Cities", "IoT", "Computer Vision"],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "#traffic-management"
+    }
+  ]
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -163,7 +228,7 @@ export default function EnhancedAIProjectsShowcase() {
         </div>
 
         <motion.div
-          className="text-center space-y-8"
+          className="text-center space-y-8 mb-16"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
@@ -184,6 +249,21 @@ export default function EnhancedAIProjectsShowcase() {
               <span>View Projects</span>
             </a>
           </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+        >
+          <h2 className="text-4xl font-bold text-center mb-12">
+            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+              Featured Projects
+            </span>
+          </h2>
+          {showcaseProjects.map((project, index) => (
+            <DiagonalProjectShowcase key={index} project={project} index={index} />
+          ))}
         </motion.div>
       </div>
     </div>
