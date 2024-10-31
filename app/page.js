@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu } from 'lucide-react'
 
@@ -39,10 +39,12 @@ const Icon = ({ name, color }) => {
 
 const ProjectCard = ({ project, isActive, onClick }) => (
   <motion.div
-    whileHover={{ scale: 1.02 }}
-    className={`bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 cursor-pointer transition-shadow duration-300 ${
+    whileHover={{ scale: 1.05, rotateY: 5 }}
+    whileTap={{ scale: 0.95 }}
+    className={`bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
       isActive ? 'ring-2 ring-blue-500 shadow-xl' : 'shadow-lg'
     }`}
+    style={{ transformStyle: 'preserve-3d' }}
     onClick={onClick}
   >
     <div className="flex items-center space-x-4 mb-4">
@@ -68,50 +70,75 @@ const ProjectCard = ({ project, isActive, onClick }) => (
   </motion.div>
 )
 
-const DiagonalProjectShowcase = ({ project, index }) => (
-  <motion.div
-    initial={{ opacity: 0, y: 50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ delay: index * 0.2 }}
-    className="relative overflow-hidden rounded-3xl shadow-2xl mb-16"
-  >
-    <div className="grid grid-cols-1 md:grid-cols-2">
-      <div className="relative h-64 md:h-auto">
-        <Image
-          src={project.image}
-          alt={project.title}
-          layout="fill"
-          objectFit="cover"
-          className="z-0"
-        />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-transparent z-10" />
-      </div>
-      <div className="relative bg-gray-900 p-8 md:p-12 flex flex-col justify-center z-20">
-        <h3 className="text-3xl font-bold mb-4 text-white">{project.title}</h3>
-        <p className="text-gray-300 mb-6">{project.description}</p>
-        <div className="flex flex-wrap gap-2 mb-6">
-          {project.tags.map((tag, index) => (
-            <span key={index} className="px-3 py-1 bg-blue-600 rounded-full text-sm font-semibold text-white">
-              {tag}
-            </span>
-          ))}
-        </div>
-        <a
-          href={project.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 w-fit"
-        >
-          <span>View Project</span>
-          <ExternalLink className="ml-2 w-5 h-5" />
-        </a>
-      </div>
-    </div>
-    <div className="absolute top-0 bottom-0 right-0 w-1/2 bg-gray-900 transform -skew-x-12 origin-top-left z-10 hidden md:block" />
-  </motion.div>
-)
+const DiagonalProjectShowcase = ({ project, index }) => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 1, 1, 0])
 
-export default function EnhancedAIProjectsShowcase() {
+  return (
+    <motion.div
+      ref={ref}
+      style={{ y, opacity }}
+      className="relative overflow-hidden rounded-3xl shadow-2xl mb-16"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="relative h-64 md:h-auto">
+          <Image
+            src={project.image}
+            alt={project.title}
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-gray-900 to-transparent z-10" />
+        </div>
+        <div className="relative bg-gray-900 p-8 md:p-12 flex flex-col justify-center z-20">
+          <h3 className="text-3xl font-bold mb-4 text-white">{project.title}</h3>
+          <p className="text-gray-300 mb-6">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.map((tag, index) => (
+              <span key={index} className="px-3 py-1 bg-blue-600 rounded-full text-sm font-semibold text-white">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 w-fit"
+          >
+            <span>View Project</span>
+            <ExternalLink className="ml-2 w-5 h-5" />
+          </a>
+        </div>
+      </div>
+      <div className="absolute top-0 bottom-0 right-0 w-1/2 bg-gray-900 transform -skew-x-12 origin-top-left z-10 hidden md:block" />
+    </motion.div>
+  )
+}
+
+const ParallaxBackground = () => {
+  const { scrollYProgress } = useScroll()
+  const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
+
+  return (
+    <motion.div 
+      className="fixed inset-0 z-0"
+      style={{
+        backgroundImage: 'url("/circuit-board.svg")',
+        backgroundSize: 'cover',
+        y
+      }}
+    />
+  )
+}
+
+export default function AdvancedAIProjectsShowcase() {
   const [currentProject, setCurrentProject] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
   const projectsRef = useRef(null)
@@ -193,78 +220,103 @@ export default function EnhancedAIProjectsShowcase() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-16"
-        >
-          <h1 className="text-6xl font-extrabold mb-4">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600">
-              Next-Gen AI Solutions
-            </span>
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            Empowering enterprises with cutting-edge artificial intelligence and machine learning solutions
-          </p>
-        </motion.div>
+    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      <ParallaxBackground />
+      <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-center mb-16"
+          >
+            <h1 className="text-6xl font-extrabold mb-4">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600">
+                Next-Gen AI Solutions
+              </span>
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              Empowering enterprises with cutting-edge artificial intelligence and machine learning solutions
+            </p>
+          </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {projects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: index * 0.2 }}
+          <div className="relative mb-16">
+            <div className="flex overflow-x-hidden" ref={projectsRef}>
+              <motion.div 
+                className="flex"
+                drag="x"
+                dragConstraints={projectsRef}
+                style={{ width: `${projects.length * 100}%` }}
+              >
+                {projects.map((project, index) => (
+                  <motion.div
+                    key={index}
+                    className="w-full md:w-1/2 lg:w-1/3 p-4"
+                    initial={{ opacity: 0, x: 50 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.2 }}
+                  >
+                    <ProjectCard
+                      project={project}
+                      isActive={index === currentProject}
+                      onClick={() => setCurrentProject(index)}
+                    />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </div>
+            <button
+              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full"
+              onClick={() => handleScroll('left')}
             >
-              <ProjectCard
-                project={project}
-                isActive={index === currentProject}
-                onClick={() => setCurrentProject(index)}
-              />
-            </motion.div>
-          ))}
-        </div>
-
-        <motion.div
-          className="text-center space-y-8 mb-16"
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.8 }}
-        >
-          <div className="inline-flex items-center space-x-4">
-            <a 
-              href="#contact"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+              <ChevronLeft className="w-6 h-6" />
+            </button>
+            <button
+              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full"
+              onClick={() => handleScroll('right')}
             >
-              <span>Schedule a Demo</span>
-              <ExternalLink className="ml-2 w-5 h-5" />
-            </a>
-            <a 
-              href="#github"
-              className="inline-flex items-center px-8 py-4 bg-gray-800 rounded-full text-lg font-semibold hover:bg-gray-700 transition-all duration-300"
-            >
-              <Github className="mr-2 w-5 h-5" />
-              <span>View Projects</span>
-            </a>
+              <ChevronRight className="w-6 h-6" />
+            </button>
           </div>
-        </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
-          <h2 className="text-4xl font-bold text-center mb-12">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-              Featured Projects
-            </span>
-          </h2>
-          {showcaseProjects.map((project, index) => (
-            <DiagonalProjectShowcase key={index} project={project} index={index} />
-          ))}
-        </motion.div>
+          <motion.div
+            className="text-center space-y-8 mb-16"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.8 }}
+          >
+            <div className="inline-flex items-center space-x-4">
+              <a 
+                href="#contact"
+                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+              >
+                <span>Schedule a Demo</span>
+                <ExternalLink className="ml-2 w-5 h-5" />
+              </a>
+              <a 
+                href="#github"
+                className="inline-flex items-center px-8  py-4 bg-gray-800 rounded-full text-lg font-semibold hover:bg-gray-700 transition-all duration-300"
+              >
+                <Github className="mr-2 w-5 h-5" />
+                <span>View Projects</span>
+              </a>
+            </div>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1 }}
+          >
+            <h2 className="text-4xl font-bold text-center mb-12">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                Featured Projects
+              </span>
+            </h2>
+            {showcaseProjects.map((project, index) => (
+              <DiagonalProjectShowcase key={index} project={project} index={index} />
+            ))}
+          </motion.div>
+        </div>
       </div>
     </div>
   )
