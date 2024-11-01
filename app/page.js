@@ -285,7 +285,7 @@ export default function AdvancedAIProjectsShowcase() {
       stats: {
         languages: "25+",
         accuracy: "98%",
-        documents: "1M+"
+        documents: "10k+"
       }
     },
     {
