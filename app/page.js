@@ -430,11 +430,6 @@ export default function AdvancedAIProjectsShowcase() {
             animate={{ opacity: 1 }}
             transition={{ delay: 1.2 }}
           >
-            <h2 className="text-4xl font-bold text-center my-12">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-                Software Solutions
-              </span>
-            </h2>
             {softwareProjects.map((project, index) => (
               <SoftwareProjectShowcase key={index} project={project} index={index} reverse={index % 2 === 0} />
             ))}
