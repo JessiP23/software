@@ -504,18 +504,6 @@ export default function AdvancedAIProjectsShowcase() {
                 ))}
               </motion.div>
             </div>
-            <button
-              className="absolute top-1/2 left-4 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full"
-              onClick={() => handleScroll('left')}
-            >
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-            <button
-              className="absolute top-1/2 right-4 transform -translate-y-1/2 bg-gray-800 p-2 rounded-full"
-              onClick={() => handleScroll('right')}
-            >
-              <ChevronRight className="w-6 h-6" />
-            </button>
           </div>
 
           <motion.div
