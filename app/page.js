@@ -213,6 +213,16 @@ export default function AdvancedAIProjectsShowcase() {
   // successful message
   const [showNotification, setShowNotification] = useState(false)
 
+  const technologies = [
+    { name: "TensorFlow", icon: Cpu, color: "blue", description: "Deep learning framework" },
+    { name: "PyTorch", icon: Zap, color: "orange", description: "Machine learning library" },
+    { name: "Scikit-learn", icon: ChartBar, color: "green", description: "Data mining and analysis" },
+    { name: "Keras", icon: Globe, color: "red", description: "Neural network library" },
+    { name: "OpenCV", icon: Cpu, color: "purple", description: "Computer vision toolkit" },
+    { name: "NLTK", icon: Terminal, color: "yellow", description: "Natural language processing" },
+    { name: "Pandas", icon: Database, color: "indigo", description: "Data manipulation tool" },
+    { name: "NumPy", icon: Cloud, color: "pink", description: "Numerical computing library" },
+  ]
 
   const teamMembers = [
     { name: "Jessi Pavia", role: "Founder && AI/ML Engineer" },
@@ -596,36 +606,37 @@ export default function AdvancedAIProjectsShowcase() {
     </section>
 
         {/* New Technologies Section */}
-        <section id='technologies' className="mb-32">
-          <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
-            <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
-              Our Technologies
-            </span>
-          </h2>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-            {[
-              { name: "TensorFlow", icon: <Cpu className="w-12 h-12 text-blue-400" /> },
-              { name: "PyTorch", icon: <Zap className="w-12 h-12 text-orange-400" /> },
-              { name: "Scikit-learn", icon: <ChartBar className="w-12 h-12 text-green-400" /> },
-              { name: "Keras", icon: <Globe className="w-12 h-12 text-red-400" /> },
-              { name: "OpenCV", icon: <CpuIcon className="w-12 h-12 text-purple-400" /> },
-              { name: "NLTK", icon: <Terminal className="w-12 h-12 text-yellow-400" /> },
-              { name: "Pandas", icon: <Database className="w-12 h-12 text-indigo-400" /> },
-              { name: "NumPy", icon: <Cloud className="w-12 h-12 text-pink-400" /> },
-            ].map((tech, index) => (
-              <motion.div
-                key={index}
-                className="flex flex-col items-center justify-center p-6 bg-gray-800 rounded-lg shadow-lg"
-                initial={{ opacity: 0, scale: 0.5 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                {tech.icon}
-                <h3 className="mt-4 text-lg font-semibold">{tech.name}</h3>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+        <section id="technologies" className="mb-32">
+      <h2 className="text-4xl font-bold text-center mb-12">
+        Technologies We Master
+      </h2>
+      <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+        Our team leverages cutting-edge technologies to deliver innovative AI solutions. 
+        Here is a glimpse into our tech stack:
+      </p>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        {technologies.map((tech, index) => (
+          <motion.div
+            key={index}
+            className="group"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <div className="bg-gray-800 rounded-lg p-6 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/20 h-full flex flex-col">
+              <div className={`w-16 h-16 rounded-full bg-${tech.color}-500/20 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110`}>
+                <tech.icon className={`w-8 h-8 text-${tech.color}-400`} />
+              </div>
+              <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors duration-300">{tech.name}</h3>
+              <p className="text-gray-400 text-sm flex-grow">{tech.description}</p>
+              <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                <a href="#" className="text-blue-400 text-sm hover:underline">Learn more →</a>
+              </div>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
       <footer className="bg-gray-900 py-16 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
