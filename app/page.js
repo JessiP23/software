@@ -293,7 +293,7 @@ export default function AdvancedAIProjectsShowcase() {
       ]
     },
     {
-      title: "Odoncology Software (Demo)",
+      title: "Odoncology Software",
       description: "Ensure transparency, traceability, and security across the entirem software system.",
       tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
       image: "/software3.png",
