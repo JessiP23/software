@@ -246,21 +246,21 @@ export default function AdvancedAIProjectsShowcase() {
       title: "AI-Driven Financial Forecasting",
       description: "Revolutionize financial planning with our AI-powered forecasting tool. Predict market trends, optimize investments, and make data-driven decisions with unparalleled accuracy.",
       tags: ["Finance", "Machine Learning", "Predictive Analytics"],
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/ai.png",
       link: "#financial-forecasting"
     },
     {
       title: "Intelligent Customer Service Bot",
       description: "Enhance customer satisfaction with our advanced NLP-powered chatbot. Handle inquiries 24/7, reduce response times, and provide personalized support at scale.",
       tags: ["NLP", "Customer Service", "Chatbot"],
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/ai1.png",
       link: "#customer-service-bot"
     },
     {
       title: "Smart City Traffic Management",
       description: "Optimize urban traffic flow with our AI-driven traffic management system. Reduce congestion, improve safety, and decrease emissions using real-time data analysis and predictive modeling.",
       tags: ["Smart Cities", "IoT", "Computer Vision"],
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/ai2.png",
       link: "#traffic-management"
     }
   ]
