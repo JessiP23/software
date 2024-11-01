@@ -299,7 +299,7 @@ export default function AdvancedAIProjectsShowcase() {
     },
     {
       title: "Odoncology Software (On Hold)",
-      description: "Revolutionize supply chain management with our blockchain-powered solution. Ensure transparency, traceability, and security across the entire supply chain network.",
+      description: "Ensure transparency, traceability, and security across the entirem software system.",
       tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
       image: "/software3.png",
       link: "#blockchain-supply-chain",
