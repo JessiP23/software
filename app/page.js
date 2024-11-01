@@ -331,6 +331,13 @@ export default function AdvancedAIProjectsShowcase() {
     }
   ]
 
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
+    }
+  }
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -422,7 +429,7 @@ export default function AdvancedAIProjectsShowcase() {
       <FuchsiaBackground />
       
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-7xl mx-auto">
+        <section id='projects' className="max-w-7xl mx-auto">
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -488,8 +495,8 @@ export default function AdvancedAIProjectsShowcase() {
               <SoftwareProjectShowcase key={index} project={project} index={index} reverse={index % 2 === 0} />
             ))}
           </motion.div>
-        </div>
-        <div className="mb-32">
+        </section>
+        <section id='achievements' className="mb-32">
         <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
           <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
             Our Milestones
@@ -530,7 +537,7 @@ export default function AdvancedAIProjectsShowcase() {
             </div>
           ))}
         </div>
-      </div>
+      </section>
           {/* Footer */}
       <footer className="bg-gray-900 py-8">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
