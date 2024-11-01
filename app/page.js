@@ -272,7 +272,7 @@ export default function AdvancedAIProjectsShowcase() {
       tags: ["Machine Learning", "Big Data", "Real-time Analytics"],
       icon: <Database className="w-8 h-8 text-blue-400" />,
       stats: {
-        accuracy: "99.8%",
+        accuracy: "91.2%",
         processing: "500K/sec",
         clients: "10+"
       }
