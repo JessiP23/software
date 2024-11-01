@@ -274,7 +274,7 @@ export default function AdvancedAIProjectsShowcase() {
       stats: {
         accuracy: "99.8%",
         processing: "500K/sec",
-        clients: "50+"
+        clients: "10+"
       }
     },
     {
