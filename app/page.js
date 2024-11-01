@@ -290,6 +290,7 @@ export default function AdvancedAIProjectsShowcase() {
       description: "Streamline your business operations with our custom backend system. Automate workflows, manage data, and optimize processes with our scalable and secure solution.",
       tags: ["JavaScript", "Next.js", "Node.js", "MongoDB"],
       image: "/software2.png",
+      link: '',
       technologies: [
         { name: "JavaScript", icon: "Database" },
         { name: "MongoDB", icon: "Globe" },
@@ -301,6 +302,7 @@ export default function AdvancedAIProjectsShowcase() {
       description: "Ensure transparency, traceability, and security across the entirem software system.",
       tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
       image: "/software3.png",
+      link: 'https://youtu.be/UIUd1oJrMO4',
       // technologies
       technologies: [
         { name: "MySQL", icon: "Database" },
