@@ -5,6 +5,7 @@ import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
+import ProfessionalContactForm from './components/Contact'
 
 const Icon = ({ name, color }) => {
   const icons = {
@@ -203,6 +204,7 @@ const ParallaxBackground = () => {
 export default function AdvancedAIProjectsShowcase() {
   const [currentProject, setCurrentProject] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
+  const [showContactForm, setShowContactForm] = useState(false)
   const projectsRef = useRef(null)
 
   const projects = [
@@ -339,9 +341,12 @@ export default function AdvancedAIProjectsShowcase() {
         </h2>
         
         <div className="mt-6">
-          <a href="#" className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white border border-pink-500 rounded-full hover:bg-pink-500 transition">
+          <button 
+            onClick={() => setShowContactForm(true)}
+            className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+          >
             Schedule an Appointment
-          </a>
+          </button>
         </div>
       </div>
 
@@ -436,6 +441,11 @@ export default function AdvancedAIProjectsShowcase() {
           </motion.div>
         </div>
       </div>
+      <AnimatePresence>
+        {showContactForm && (
+          <ProfessionalContactForm onClose={() => setShowContactForm(false)} />
+        )}
+      </AnimatePresence>
     </div>
   )
 }
