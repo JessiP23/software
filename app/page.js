@@ -568,13 +568,13 @@ export default function AdvancedAIProjectsShowcase() {
                 <li className="flex items-center text-gray-400">
                   <Mail className="w-5 h-5 mr-2" />
                   <a href="mailto:info@aisolutions.com" className="hover:text-white transition-colors duration-200 ease-in-out">
-                    info@aisolutions.com
+                    jessipav@trk-fndr.store
                   </a>
                 </li>
                 <li className="flex items-center text-gray-400">
                   <Phone className="w-5 h-5 mr-2" />
                   <a href="tel:+1234567890" className="hover:text-white transition-colors duration-200 ease-in-out">
-                    +1 (234) 567-890
+                    +1 (646) 387-5453
                   </a>
                 </li>
               </ul>
