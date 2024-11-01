@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 import ProfessionalContactForm from './components/Contact'
 
@@ -278,14 +278,14 @@ export default function AdvancedAIProjectsShowcase() {
       }
     },
     {
-      title: "Natural Language Processing Suite",
-      description: "Advanced NLP tools for content analysis and automated document processing",
-      tags: ["NLP", "Deep Learning", "Text Analytics"],
-      icon: <Terminal className="w-8 h-8 text-purple-400" />,
+      title: "AI-Powered Business Insights Suite",
+      description: "Comprehensive AI tools for data analysis, predictive modeling, and automated reporting to drive business growth.",
+      tags: ["AI", "Business Intelligence", "Predictive Analytics"],
+      icon: <ChartBar className="w-8 h-8 text-purple-400" />,
       stats: {
-        languages: "2",
-        accuracy: "87%",
-        documents: "10k+"
+        languages: "3",
+        accuracy: "92%",
+        documents: "15k+"
       }
     },
     {
