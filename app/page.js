@@ -380,7 +380,7 @@ export default function AdvancedAIProjectsShowcase() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {['Projects', 'Achievements', 'Contact'].map((item) => (
+                {['Home', 'Projects', 'Achievements'].map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -403,7 +403,7 @@ export default function AdvancedAIProjectsShowcase() {
         </div>
       </nav>
 
-      <section id='hero' className="relative h-screen flex items-center justify-center">
+      <section id='home' className="relative h-screen flex items-center justify-center">
       
         <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
 
