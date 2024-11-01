@@ -3,9 +3,10 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 import ProfessionalContactForm from './components/Contact'
+import Link from 'next/link'
 
 const Icon = ({ name, color }) => {
   const icons = {
@@ -370,7 +371,7 @@ export default function AdvancedAIProjectsShowcase() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden">
+    <div className="relative min-h-screen bg-black text-white overflow-hidden flex flex-col">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -538,19 +539,71 @@ export default function AdvancedAIProjectsShowcase() {
           ))}
         </div>
       </section>
-          {/* Footer */}
-      <footer className="bg-gray-900 py-8">
+      <footer className="bg-gray-900 py-16 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center">
-            <p className="text-gray-400">&copy; 2023 AI Solutions. All rights reserved.</p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white">
-                <Github className="w-6 h-6" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white">
-                <Globe2Icon className="w-6 h-6" />
-              </a>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+            <div className="space-y-4">
+              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                AI Solutions
+              </h3>
+              <p className="text-gray-400 max-w-xs">
+                Empowering businesses with cutting-edge artificial intelligence and machine learning solutions.
+              </p>
             </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
+              <ul className="space-y-2">
+                {['Home', 'Projects', 'Achievements', 'Contact'].map((item) => (
+                  <li key={item}>
+                    <Link href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-200 ease-in-out">
+                      {item}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Contact Us</h4>
+              <ul className="space-y-2">
+                <li className="flex items-center text-gray-400">
+                  <Mail className="w-5 h-5 mr-2" />
+                  <a href="mailto:info@aisolutions.com" className="hover:text-white transition-colors duration-200 ease-in-out">
+                    info@aisolutions.com
+                  </a>
+                </li>
+                <li className="flex items-center text-gray-400">
+                  <Phone className="w-5 h-5 mr-2" />
+                  <a href="tel:+1234567890" className="hover:text-white transition-colors duration-200 ease-in-out">
+                    +1 (234) 567-890
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+              <div className="flex space-x-4">
+                {[
+                  { icon: <Github className="w-6 h-6" />, href: "#", label: "GitHub" },
+                  { icon: <Linkedin className="w-6 h-6" />, href: "#", label: "LinkedIn" },
+                  { icon: <Twitter className="w-6 h-6" />, href: "#", label: "Twitter" },
+                  { icon: <Facebook className="w-6 h-6" />, href: "#", label: "Facebook" }
+                ].map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="text-gray-400 hover:text-white transition-colors duration-200 ease-in-out"
+                    aria-label={social.label}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+          <div className="mt-12 pt-8 border-t border-gray-800">
+            <p className="text-center text-gray-400">
+              &copy; {new Date().getFullYear()} AI Solutions. All rights reserved.
+            </p>
           </div>
         </div>
       </footer>
