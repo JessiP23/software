@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 
 const Icon = ({ name, color }) => {
@@ -286,9 +286,9 @@ export default function AdvancedAIProjectsShowcase() {
       ]
     },
     {
-      title: "Blockchain-based Supply Chain",
-      description: "Revolutionize supply chain management with our blockchain-powered solution. Ensure transparency, traceability, and security across the entire supply chain network.",
-      tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
+      title: "Business Backend System",
+      description: "Streamline your business operations with our custom backend system. Automate workflows, manage data, and optimize processes with our scalable and secure solution.",
+      tags: ["JavaScript", "Next.js", "Node.js", "MongoDB"],
       image: "/software2.png",
       link: "#blockchain-supply-chain",
       technologies: [
@@ -298,7 +298,7 @@ export default function AdvancedAIProjectsShowcase() {
       ]
     },
     {
-      title: "Blockchain-based Supply Chain",
+      title: "Odoncology Software (On Hold)",
       description: "Revolutionize supply chain management with our blockchain-powered solution. Ensure transparency, traceability, and security across the entire supply chain network.",
       tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
       image: "/software3.png",
