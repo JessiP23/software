@@ -206,7 +206,6 @@ export default function AdvancedAIProjectsShowcase() {
   const [isHovering, setIsHovering] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
   const projectsRef = useRef(null)
-  const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState({});
 
   const [activeSection, setActiveSection] = useState('projects')
