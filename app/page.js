@@ -209,7 +209,7 @@ export default function AdvancedAIProjectsShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState({});
 
-  const [activeSection, setActiveSection] = useState('projects')
+  const [activeSection, setActiveSection] = useState('')
 
   // Add a timeline of achievements
   const achievements = [
