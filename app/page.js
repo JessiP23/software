@@ -407,25 +407,25 @@ export default function AdvancedAIProjectsShowcase() {
 
       <div className="relative h-screen flex items-center justify-center">
       
-      <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
 
-      <div className="relative z-10 text-center max-w-3xl px-4">
+        <div className="relative z-10 text-center max-w-3xl px-4">
         
-        <p className="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
+          <p className="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
         
-        <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
-          Build your software with our cutting-edge solutions
-        </h2>
+          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+            Build your software with our cutting-edge solutions
+          </h2>
         
-        <div className="mt-6">
-          <button 
-            onClick={() => setShowContactForm(true)}
-            className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
-          >
-            Schedule an Appointment
-          </button>
+          <div className="mt-6">
+            <button 
+              onClick={() => setShowContactForm(true)}
+              className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+            >
+              Schedule an Appointment
+            </button>
+          </div>
         </div>
-      </div>
       </div>
       <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
