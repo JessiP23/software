@@ -333,10 +333,6 @@ export default function AdvancedAIProjectsShowcase() {
       
       <div class="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
 
-      <div class="absolute top-6 left-8">
-        <h1 class="text-xl font-bold">IOCO</h1>
-      </div>
-
       <div class="relative z-10 text-center max-w-3xl px-4">
         
         <p class="text-sm tracking-wider text-white/70 mb-2">HACKING THE CELL</p>
