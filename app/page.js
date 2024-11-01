@@ -396,7 +396,7 @@ export default function AdvancedAIProjectsShowcase() {
         </div>
       </nav>
 
-      <div className="relative h-screen flex items-center justify-center">
+      <section id='hero' className="relative h-screen flex items-center justify-center">
       
         <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
 
@@ -417,7 +417,7 @@ export default function AdvancedAIProjectsShowcase() {
             </button>
           </div>
         </div>
-      </div>
+      </section>
       <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
