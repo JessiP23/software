@@ -585,8 +585,6 @@ export default function AdvancedAIProjectsShowcase() {
                 {[
                   { icon: <Github className="w-6 h-6" />, href: "#", label: "GitHub" },
                   { icon: <Linkedin className="w-6 h-6" />, href: "#", label: "LinkedIn" },
-                  { icon: <Twitter className="w-6 h-6" />, href: "#", label: "Twitter" },
-                  { icon: <Facebook className="w-6 h-6" />, href: "#", label: "Facebook" }
                 ].map((social, index) => (
                   <a
                     key={index}
