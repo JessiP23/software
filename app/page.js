@@ -301,6 +301,7 @@ export default function AdvancedAIProjectsShowcase() {
       description: "Ensure transparency, traceability, and security across the entirem software system.",
       tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
       image: "/software3.png",
+      // technologies
       technologies: [
         { name: "MySQL", icon: "Database" },
         { name: "Express.js", icon: "Globe" },
