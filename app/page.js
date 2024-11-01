@@ -211,58 +211,23 @@ export default function AdvancedAIProjectsShowcase() {
 
   const [activeSection, setActiveSection] = useState('projects')
 
-  // Add a testimonials section
-  const testimonials = [
-    {
-      name: "Emily Chen",
-      role: "CTO",
-      company: "TechGlobal Solutions",
-      quote: "The implementation exceeded our expectations. ROI increased by 300% within the first quarter.",
-      image: "/api/placeholder/80/80"
-    },
-    {
-      name: "Michael Rodriguez",
-      role: "Director of Operations",
-      company: "Innovation Corp",
-      quote: "A game-changing partnership that transformed our entire business model.",
-      image: "/api/placeholder/80/80"
-    },
-    {
-      name: "Sarah Williams",
-      role: "CEO",
-      company: "Future Enterprises",
-      quote: "The most reliable and innovative solution we've implemented in our decade-long operations.",
-      image: "/api/placeholder/80/80"
-    }
-  ];
-
   // Add a timeline of achievements
   const achievements = [
     {
       title: "Market Launch",
-      year: "2018",
+      year: "2023",
       description: "Successfully launched our innovative platform, revolutionizing industry standards."
     },
     {
+      title: "HeadStarter Pitch Demo",
+      year: "2024",
+      description: "Top 20 in HeadStarter Fellowship Pitch Demo"
+    },
+    {
       title: "Global Expansion",
-      year: "2019",
-      description: "Expanded operations to 15+ countries, serving Fortune 500 clients."
+      year: "2024",
+      description: "Expanded operations to Latin America countries (Mexico)"
     },
-    {
-      title: "Technology Patent",
-      year: "2020",
-      description: "Secured breakthrough patent for our proprietary AI technology."
-    },
-    {
-      title: "Series A Funding",
-      year: "2021",
-      description: "$50M funding round led by top venture capital firms."
-    },
-    {
-      title: "Industry Recognition",
-      year: "2022",
-      description: "Named 'Most Innovative Company' by Tech Excellence Awards."
-    }
   ];
 
   const projects = [
@@ -405,14 +370,6 @@ export default function AdvancedAIProjectsShowcase() {
     return () => observer.disconnect();
   }, []);
 
-  // Auto-rotate testimonials
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % testimonials.length);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
-
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
       {/* Navigation */}
@@ -424,7 +381,7 @@ export default function AdvancedAIProjectsShowcase() {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-4">
-                {['Projects', 'Achievements', 'Testimonials', 'Contact'].map((item) => (
+                {['Projects', 'Achievements', 'Contact'].map((item) => (
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
@@ -570,72 +527,6 @@ export default function AdvancedAIProjectsShowcase() {
               </div>
             </div>
           ))}
-        </div>
-      </div>
-
-      {/* Testimonials */}
-      <div className="mt-32">
-        <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
-          <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
-            Client Success Stories
-          </span>
-        </h2>
-
-        <div className="relative overflow-hidden">
-          <div className="flex transition-transform duration-700 ease-out"
-               style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
-            {testimonials.map((testimonial, index) => (
-              <div
-                key={index}
-                className="w-full flex-shrink-0 px-4"
-              >
-                <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
-                  <div className="flex items-center mb-6">
-                    <div className="relative">
-                      <div className="w-20 h-20 rounded-full overflow-hidden ring-4 ring-purple-500">
-                        <Image
-                          width={400}
-                          height={600}
-                          src={testimonial.image}
-                          alt={testimonial.name}
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
-                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
-                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
-                        </svg>
-                      </div>
-                    </div>
-                    <div className="ml-6">
-                      <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
-                        {testimonial.name}
-                      </h3>
-                      <p className="text-gray-400 font-medium">{testimonial.role}</p>
-                      <p className="text-gray-500">{testimonial.company}</p>
-                    </div>
-                  </div>
-                  <p className="text-xl text-gray-300 italic leading-relaxed">{testimonial.quote}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Navigation dots */}
-          <div className="flex justify-center mt-8 gap-3">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setActiveIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  activeIndex === index
-                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 w-6'
-                    : 'bg-gray-600'
-                }`}
-                aria-label={`Go to testimonial ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
       </div>
           {/* Footer */}
