@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 
 const Icon = ({ name, color }) => {
@@ -123,6 +123,66 @@ const DiagonalProjectShowcase = ({ project, index }) => {
   )
 }
 
+const SoftwareProjectShowcase = ({ project }) => {
+  const ref = useRef(null)
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  })
+  const y = useTransform(scrollYProgress, [0, 1], [100, -100])
+  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.6, 1], [0, 1, 1, 0])
+
+  return (
+    <motion.div
+      ref={ref}
+      style={{ y, opacity }}
+      className="relative overflow-hidden rounded-3xl shadow-2xl mb-16"
+    >
+      <div className="grid grid-cols-1 md:grid-cols-2">
+        <div className="relative bg-gray-900 p-8 md:p-12 flex flex-col justify-center z-20">
+          <h3 className="text-3xl font-bold mb-4 text-white">{project.title}</h3>
+          <p className="text-gray-300 mb-6">{project.description}</p>
+          <div className="flex flex-wrap gap-2 mb-6">
+            {project.tags.map((tag, index) => (
+              <span key={index} className="px-3 py-1 bg-blue-600 rounded-full text-sm font-semibold text-white">
+                {tag}
+              </span>
+            ))}
+          </div>
+          <div className="flex flex-wrap gap-4 mb-6">
+            {project.technologies.map((tech, index) => (
+              <div key={index} className="flex items-center bg-gray-800 rounded-full px-3 py-1">
+                <Icon name={tech.icon} color="#60A5FA" />
+                <span className="ml-2 text-sm font-semibold text-gray-300">{tech.name}</span>
+              </div>
+            ))}
+          </div>
+          <a
+            href={project.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 w-fit"
+          >
+            <span>View Project</span>
+            <ExternalLink className="ml-2 w-5 h-5" />
+          </a>
+        </div>
+        <div className="relative h-64 md:h-auto">
+          <Image
+            src={project.image}
+            alt={project.title}
+            layout="fill"
+            objectFit="cover"
+            className="z-0"
+          />
+          <div className="absolute inset-0 bg-gradient-to-l from-gray-900 to-transparent z-10" />
+        </div>
+      </div>
+      <div className="absolute top-0 bottom-0 left-0 w-1/2 bg-gray-900 transform skew-x-12 origin-top-right z-10 hidden md:block" />
+    </motion.div>
+  )
+}
+
 const ParallaxBackground = () => {
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '100%'])
@@ -204,6 +264,46 @@ export default function AdvancedAIProjectsShowcase() {
       link: "#traffic-management"
     }
   ]
+
+  const softwareProjects = [
+    {
+      title: "AI-Powered Code Assistant",
+      description: "Boost developer productivity with our AI-powered code assistant. Get intelligent code suggestions, automated refactoring, and context-aware documentation in real-time.",
+      tags: ["AI", "Developer Tools", "Code Analysis"],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "#code-assistant",
+      technologies: [
+        { name: "Python", icon: "Globe" },
+        { name: "TensorFlow", icon: "Cpu" },
+        { name: "VS Code Extension", icon: "Terminal" },
+      ]
+    },
+    {
+      title: "Quantum Computing Simulator",
+      description: "Explore the world of quantum computing with our  advanced simulator. Test quantum algorithms, visualize quantum states, and accelerate quantum research and education.",
+      tags: ["Quantum Computing", "Simulation", "Education"],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "#quantum-simulator",
+      technologies: [
+        { name: "Q#", icon: "Zap" },
+        { name: "Python", icon: "Globe" },
+        { name: "WebAssembly", icon: "Cpu" },
+      ]
+    },
+    {
+      title: "Blockchain-based Supply Chain",
+      description: "Revolutionize supply chain management with our blockchain-powered solution. Ensure transparency, traceability, and security across the entire supply chain network.",
+      tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
+      image: "/placeholder.svg?height=600&width=800",
+      link: "#blockchain-supply-chain",
+      technologies: [
+        { name: "Solidity", icon: "Database" },
+        { name: "Ethereum", icon: "Globe" },
+        { name: "React", icon: "Zap" },
+      ]
+    },
+  ]
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -316,6 +416,20 @@ export default function AdvancedAIProjectsShowcase() {
             </h2>
             {showcaseProjects.map((project, index) => (
               <DiagonalProjectShowcase key={index} project={project} index={index} />
+            ))}
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 1.2 }}
+          >
+            <h2 className="text-4xl font-bold text-center my-12">
+              <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                Software Solutions
+              </span>
+            </h2>
+            {softwareProjects.map((project, index) => (
+              <SoftwareProjectShowcase key={index} project={project} index={index} reverse={index % 2 === 0} />
             ))}
           </motion.div>
         </div>
