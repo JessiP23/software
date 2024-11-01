@@ -254,14 +254,14 @@ export default function AdvancedAIProjectsShowcase() {
       description: "Upload music, receive personalized insights and sentiment analysis for song ratings, and enjoy a tailored experience that enhances your musical journey, all powered by AI.",
       tags: ["NLP", "Machine Learning", "Chatbot"],
       image: "/ai1.png",
-      link: "https://jrating.vercel.app"
+      link: "https://youtu.be/MrH74ZUbNC8"
     },
     {
       title: "Generation Script (down)",
       description: "Optimize generation of scripts, landing pages, social media posts, and more with our AI-powered script generation tool. Boost productivity, reduce errors, and streamline content creation.",
       tags: ["AI", "Llama3.1", "Vector Database"],
       image: "/ai2.png",
-      link: "https://generatorscript.vercel.app/"
+      link: "https://youtu.be/L8878oVNRo8"
     },
     {
       title: "Flashcard (demo)",
