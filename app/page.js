@@ -275,7 +275,7 @@ export default function AdvancedAIProjectsShowcase() {
       description: "Intelligent virtual assistant designed to analyze user preferences and recommend personalized fashion choices, enhancing the online shopping experience through interactive dialogue and tailored suggestions.",
       tags: ["Graph Database", "Web Scraping", "Natural Language Processing", "Prompt Engineering"],
       image: "/ai3.png",
-      link: "https://youtu.be/Z-ERWzRB-OQ"
+      link: "https://youtu.be/54uBUoY3WRg"
     }
   ]
 
@@ -290,18 +290,6 @@ export default function AdvancedAIProjectsShowcase() {
         { name: "Q#", icon: "Zap" },
         { name: "Python", icon: "Globe" },
         { name: "WebAssembly", icon: "Cpu" },
-      ]
-    },
-    {
-      title: "Business Backend System",
-      description: "Streamline your business operations with our custom backend system. Automate workflows, manage data, and optimize processes with our scalable and secure solution.",
-      tags: ["JavaScript", "Next.js", "Node.js", "MongoDB"],
-      image: "/software2.png",
-      link: '',
-      technologies: [
-        { name: "JavaScript", icon: "Database" },
-        { name: "MongoDB", icon: "Globe" },
-        { name: "React", icon: "Zap" },
       ]
     },
     {
