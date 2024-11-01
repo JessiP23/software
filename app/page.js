@@ -353,10 +353,6 @@ export default function AdvancedAIProjectsShowcase() {
           →
         </button>
       </div>
-
-      <div className="absolute right-8 bottom-10 text-right">
-        <p className="text-white/70">01 / 05</p>
-      </div>
       </div>
       <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
