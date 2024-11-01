@@ -269,6 +269,13 @@ export default function AdvancedAIProjectsShowcase() {
       tags: ["Natural Language Processing", "Machine Learning", "Spaced Repetition Algorithm"],
       image: "/ai3.png",
       link: "https://youtu.be/Z-ERWzRB-OQ"
+    },
+    {
+      title: "Chatbot clothing AI",
+      description: "Intelligent virtual assistant designed to analyze user preferences and recommend personalized fashion choices, enhancing the online shopping experience through interactive dialogue and tailored suggestions.",
+      tags: ["Graph Database", "Web Scraping", "Natural Language Processing", "Prompt Engineering"],
+      image: "/ai3.png",
+      link: "https://youtu.be/Z-ERWzRB-OQ"
     }
   ]
 
