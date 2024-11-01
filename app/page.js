@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail, CheckCircle, User } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 import ProfessionalContactForm from './components/Contact'
 import Link from 'next/link'
@@ -214,6 +214,11 @@ export default function AdvancedAIProjectsShowcase() {
   const [showNotification, setShowNotification] = useState(false)
 
 
+  const teamMembers = [
+    { name: "Jessi Pavia", role: "Founder && AI/ML Engineer" },
+    { name: "Chanice Stlouis", role: "Backend Engineer" },
+  ]
+
   // Add a timeline of achievements
   const achievements = [
     {
@@ -342,6 +347,11 @@ export default function AdvancedAIProjectsShowcase() {
     }
   }
 
+  const handleEmailSuccess = () => {
+    setShowNotification(true)
+    setTimeout(() => setShowNotification(false), 5000) // Hide notification after 5 seconds
+  }
+
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -406,6 +416,20 @@ export default function AdvancedAIProjectsShowcase() {
           </div>
         </div>
       </nav>
+
+      <AnimatePresence>
+        {showNotification && (
+          <motion.div
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -50 }}
+            className="fixed top-20 right-4 z-50 bg-green-500 text-white px-6 py-3 rounded-lg shadow-lg flex items-center"
+          >
+            <CheckCircle className="mr-2" />
+            <span>Email sent successfully!</span>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <section id='home' className="relative h-screen flex items-center justify-center">
       
@@ -542,6 +566,66 @@ export default function AdvancedAIProjectsShowcase() {
           ))}
         </div>
       </section>
+
+      {/* New Team Section */}
+      <section id='team' className="mb-32">
+      <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
+        <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
+          Our Team
+        </span>
+      </h2>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {teamMembers.map((member, index) => (
+          <motion.div
+            key={index}
+            className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-lg overflow-hidden shadow-lg p-6"
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: index * 0.1 }}
+          >
+            <div className="flex flex-col items-center text-center">
+              <div className="w-20 h-20 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center mb-4">
+                <User className="w-10 h-10 text-white" />
+              </div>
+              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
+              <p className="text-gray-400">{member.role}</p>
+            </div>
+          </motion.div>
+        ))}
+      </div>
+    </section>
+
+        {/* New Technologies Section */}
+        <section id='technologies' className="mb-32">
+          <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
+            <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
+              Our Technologies
+            </span>
+          </h2>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            {[
+              { name: "TensorFlow", icon: <Cpu className="w-12 h-12 text-blue-400" /> },
+              { name: "PyTorch", icon: <Zap className="w-12 h-12 text-orange-400" /> },
+              { name: "Scikit-learn", icon: <ChartBar className="w-12 h-12 text-green-400" /> },
+              { name: "Keras", icon: <Globe className="w-12 h-12 text-red-400" /> },
+              { name: "OpenCV", icon: <CpuIcon className="w-12 h-12 text-purple-400" /> },
+              { name: "NLTK", icon: <Terminal className="w-12 h-12 text-yellow-400" /> },
+              { name: "Pandas", icon: <Database className="w-12 h-12 text-indigo-400" /> },
+              { name: "NumPy", icon: <Cloud className="w-12 h-12 text-pink-400" /> },
+            ].map((tech, index) => (
+              <motion.div
+                key={index}
+                className="flex flex-col items-center justify-center p-6 bg-gray-800 rounded-lg shadow-lg"
+                initial={{ opacity: 0, scale: 0.5 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                {tech.icon}
+                <h3 className="mt-4 text-lg font-semibold">{tech.name}</h3>
+              </motion.div>
+            ))}
+          </div>
+        </section>
       <footer className="bg-gray-900 py-16 mt-auto">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
