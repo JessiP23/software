@@ -254,7 +254,7 @@ export default function AdvancedAIProjectsShowcase() {
       description: "Upload music, receive personalized insights and sentiment analysis for song ratings, and enjoy a tailored experience that enhances your musical journey, all powered by AI.",
       tags: ["NLP", "Machine Learning", "Chatbot"],
       image: "/ai1.png",
-      link: "https://jrating.vercel.app/?vercelToolbarCode=iab2N3N785sXX30"
+      link: "https://jrating.vercel.app"
     },
     {
       title: "Generation Script (down)",
@@ -274,23 +274,11 @@ export default function AdvancedAIProjectsShowcase() {
 
   const softwareProjects = [
     {
-      title: "AI-Powered Code Assistant",
-      description: "Boost developer productivity with our AI-powered code assistant. Get intelligent code suggestions, automated refactoring, and context-aware documentation in real-time.",
-      tags: ["AI", "Developer Tools", "Code Analysis"],
-      image: "/software.png",
-      link: "#code-assistant",
-      technologies: [
-        { name: "Python", icon: "Globe" },
-        { name: "TensorFlow", icon: "Cpu" },
-        { name: "VS Code Extension", icon: "Terminal" },
-      ]
-    },
-    {
-      title: "Quantum Computing Simulator",
-      description: "Explore the world of quantum computing with our  advanced simulator. Test quantum algorithms, visualize quantum states, and accelerate quantum research and education.",
-      tags: ["Quantum Computing", "Simulation", "Education"],
+      title: "3D Structure Generator (Process)",
+      description: "Generate your own 3D structure objects with a single request, enabling customization.",
+      tags: ["NLP", "OpenGL", "Deep Learning", "GANs"],
       image: "/software1.png",
-      link: "#quantum-simulator",
+      link: "https://room-generation-6g7o.vercel.app/",
       technologies: [
         { name: "Q#", icon: "Zap" },
         { name: "Python", icon: "Globe" },
