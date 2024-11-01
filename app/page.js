@@ -342,33 +342,34 @@ export default function AdvancedAIProjectsShowcase() {
     return () => clearInterval(interval)
   }, [isHovering, projects.length])
 
-  const handleScroll = (direction) => {
-    if (projectsRef.current) {
-      const scrollAmount = direction === 'left' ? -300 : 300
-      projectsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
+  const scrollToSection = (sectionId) => {
+    const section = document.getElementById(sectionId)
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' })
     }
   }
 
-  // Intersection Observer for scroll animations
+  // Use Intersection Observer to update active section
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach(entry => {
+        entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            setIsVisible(prev => ({
-              ...prev,
-              [entry.target.dataset.index]: true
-            }));
+            setActiveSection(entry.target.id)
           }
-        });
+        })
       },
-      { threshold: 0.1 }
-    );
+      { threshold: 0.5 }
+    )
 
-    document.querySelectorAll('[data-index]').forEach((el) => observer.observe(el));
-    
-    return () => observer.disconnect();
-  }, []);
+    const sections = ['hero', 'projects', 'achievements', 'contact']
+    sections.forEach((section) => {
+      const element = document.getElementById(section)
+      if (element) observer.observe(element)
+    })
+
+    return () => observer.disconnect()
+  }, [])
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
@@ -385,8 +386,15 @@ export default function AdvancedAIProjectsShowcase() {
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    onClick={() => setActiveSection(item.toLowerCase())}
+                    className={`px-3 py-2 rounded-md text-sm font-medium ${
+                      activeSection === item.toLowerCase()
+                        ? 'bg-gray-700 text-white'
+                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      scrollToSection(item.toLowerCase())
+                    }}
                   >
                     {item}
                   </a>
@@ -396,6 +404,7 @@ export default function AdvancedAIProjectsShowcase() {
           </div>
         </div>
       </nav>
+
       <div className="relative h-screen flex items-center justify-center">
       
       <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
