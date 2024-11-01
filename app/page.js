@@ -302,8 +302,8 @@ export default function AdvancedAIProjectsShowcase() {
       tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
       image: "/software3.png",
       technologies: [
-        { name: "Solidity", icon: "Database" },
-        { name: "Ethereum", icon: "Globe" },
+        { name: "MySQL", icon: "Database" },
+        { name: "Express.js", icon: "Globe" },
         { name: "React", icon: "Zap" },
       ]
     }
