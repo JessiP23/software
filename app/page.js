@@ -210,6 +210,9 @@ export default function AdvancedAIProjectsShowcase() {
   const [isVisible, setIsVisible] = useState({});
 
   const [activeSection, setActiveSection] = useState('projects')
+  // successful message
+  const [showNotification, setShowNotification] = useState(false)
+
 
   // Add a timeline of achievements
   const achievements = [
