@@ -329,6 +329,42 @@ export default function AdvancedAIProjectsShowcase() {
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      <div class="relative h-screen flex items-center justify-center">
+      
+      <div class="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
+
+      <div class="absolute top-6 left-8">
+        <h1 class="text-xl font-bold">IOCO</h1>
+      </div>
+
+      <div class="relative z-10 text-center max-w-3xl px-4">
+        
+        <p class="text-sm tracking-wider text-white/70 mb-2">HACKING THE CELL</p>
+        
+        <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
+          Creating a Biocomputer
+        </h2>
+        
+        <div class="mt-6">
+          <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white border border-pink-500 rounded-full hover:bg-pink-500 transition">
+            WATCH VIDEO
+          </a>
+        </div>
+      </div>
+
+      <div class="absolute left-8 bottom-10 flex items-center space-x-3">
+        <button class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
+          ←
+        </button>
+        <button class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
+          →
+        </button>
+      </div>
+
+      <div class="absolute right-8 bottom-10 text-right">
+        <p class="text-white/70">01 / 05</p>
+      </div>
+      </div>
       <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
