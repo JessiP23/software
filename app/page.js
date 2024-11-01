@@ -257,18 +257,18 @@ export default function AdvancedAIProjectsShowcase() {
       link: "https://youtu.be/MrH74ZUbNC8"
     },
     {
-      title: "Generation Script (down)",
+      title: "Generation Script",
       description: "Optimize generation of scripts, landing pages, social media posts, and more with our AI-powered script generation tool. Boost productivity, reduce errors, and streamline content creation.",
       tags: ["AI", "Llama3.1", "Vector Database"],
       image: "/ai2.png",
       link: "https://youtu.be/L8878oVNRo8"
     },
     {
-      title: "Flashcard (demo)",
+      title: "Flashcard AI",
       description: "Create flashcards, quizzes, and study guides with our AI-powered educational tool. Enhance learning, improve retention, and boost academic performance with our intelligent study assistant.",
       tags: ["Natural Language Processing", "Machine Learning", "Spaced Repetition Algorithm"],
       image: "/ai3.png",
-      link: "https://flash-hw.vercel.app/"
+      link: "https://youtu.be/Z-ERWzRB-OQ"
     }
   ]
 
