@@ -207,7 +207,7 @@ export default function AdvancedAIProjectsShowcase() {
 
   const projects = [
     {
-      title: "Music Recommendation Engine",
+      title: "AI-Powered Analytics Platform",
       description: "Enterprise-grade analytics solution with predictive modeling and real-time insights",
       tags: ["Machine Learning", "Big Data", "Real-time Analytics"],
       icon: <Database className="w-8 h-8 text-blue-400" />,
@@ -243,11 +243,11 @@ export default function AdvancedAIProjectsShowcase() {
 
   const showcaseProjects = [
     {
-      title: "AI-Driven Financial Forecasting",
-      description: "Revolutionize financial planning with our AI-powered forecasting tool. Predict market trends, optimize investments, and make data-driven decisions with unparalleled accuracy.",
-      tags: ["Finance", "Machine Learning", "Predictive Analytics"],
+      title: "Music Recomendation Engine",
+      description: "AI-powered music app that collects and curates tracks from various artists to create personalized playlists tailored to each user's preferences",
+      tags: ["PyTorch", "Machine Learning", "NumPy", 'LLM'],
       image: "/ai.png",
-      link: "#financial-forecasting"
+      link: "https://trk-murex.vercel.app/"
     },
     {
       title: "Intelligent Customer Service Bot",
