@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 import ProfessionalContactForm from './components/Contact'
 
@@ -206,32 +206,64 @@ export default function AdvancedAIProjectsShowcase() {
   const [isHovering, setIsHovering] = useState(false)
   const [showContactForm, setShowContactForm] = useState(false)
   const projectsRef = useRef(null)
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isVisible, setIsVisible] = useState({});
 
   const [activeSection, setActiveSection] = useState('projects')
 
   // Add a testimonials section
   const testimonials = [
     {
-      name: "John Doe",
-      company: "Tech Innovators Inc.",
-      quote: "This AI solution revolutionized our data analysis process. Highly recommended!",
-      image: "/placeholder.svg?height=100&width=100"
+      name: "Emily Chen",
+      role: "CTO",
+      company: "TechGlobal Solutions",
+      quote: "The implementation exceeded our expectations. ROI increased by 300% within the first quarter.",
+      image: "/api/placeholder/80/80"
     },
     {
-      name: "Jane Smith",
-      company: "Future Systems LLC",
-      quote: "The team's expertise in AI and machine learning is unparalleled. A game-changer for our business.",
-      image: "/placeholder.svg?height=100&width=100"
+      name: "Michael Rodriguez",
+      role: "Director of Operations",
+      company: "Innovation Corp",
+      quote: "A game-changing partnership that transformed our entire business model.",
+      image: "/api/placeholder/80/80"
+    },
+    {
+      name: "Sarah Williams",
+      role: "CEO",
+      company: "Future Enterprises",
+      quote: "The most reliable and innovative solution we've implemented in our decade-long operations.",
+      image: "/api/placeholder/80/80"
     }
-  ]
+  ];
 
   // Add a timeline of achievements
   const achievements = [
-    { year: 2020, title: "Founded the company" },
-    { year: 2021, title: "Launched first AI product" },
-    { year: 2022, title: "Reached 100+ enterprise clients" },
-    { year: 2023, title: "Awarded 'Most Innovative AI Solution'" }
-  ]
+    {
+      title: "Market Launch",
+      year: "2018",
+      description: "Successfully launched our innovative platform, revolutionizing industry standards."
+    },
+    {
+      title: "Global Expansion",
+      year: "2019",
+      description: "Expanded operations to 15+ countries, serving Fortune 500 clients."
+    },
+    {
+      title: "Technology Patent",
+      year: "2020",
+      description: "Secured breakthrough patent for our proprietary AI technology."
+    },
+    {
+      title: "Series A Funding",
+      year: "2021",
+      description: "$50M funding round led by top venture capital firms."
+    },
+    {
+      title: "Industry Recognition",
+      year: "2022",
+      description: "Named 'Most Innovative Company' by Tech Excellence Awards."
+    }
+  ];
 
   const projects = [
     {
@@ -351,6 +383,35 @@ export default function AdvancedAIProjectsShowcase() {
       projectsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
     }
   }
+
+  // Intersection Observer for scroll animations
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setIsVisible(prev => ({
+              ...prev,
+              [entry.target.dataset.index]: true
+            }));
+          }
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    document.querySelectorAll('[data-index]').forEach((el) => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
+
+  // Auto-rotate testimonials
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
@@ -481,7 +542,133 @@ export default function AdvancedAIProjectsShowcase() {
             ))}
           </motion.div>
         </div>
+        <div className="mb-32">
+        <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
+          <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
+            Our Milestones
+          </span>
+        </h2>
+        
+        <div className="relative">
+          {/* Timeline central line */}
+          <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-0.5 bg-gradient-to-b from-blue-500 to-purple-600"></div>
+          
+          {achievements.map((achievement, index) => (
+            <div
+              key={index}
+              data-index={`achievement-${index}`}
+              className={`mb-20 flex items-center justify-center ${
+                isVisible[`achievement-${index}`] ? 'opacity-100' : 'opacity-0'
+              } transition-all duration-1000 ease-out`}
+              style={{
+                transform: isVisible[`achievement-${index}`] ? 'translateY(0)' : 'translateY(50px)'
+              }}
+            >
+              <div className={`w-5/12 ${index % 2 === 0 ? 'text-right pr-8' : 'order-2 pl-8'}`}>
+                <h3 className="text-2xl font-bold mb-2 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                  {achievement.title}
+                </h3>
+                <p className="text-gray-300">{achievement.description}</p>
+              </div>
+              
+              <div className="w-2/12 relative flex justify-center">
+                <div className="w-6 h-6 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
+                  <div className="w-4 h-4 bg-gray-900 rounded-full"></div>
+                </div>
+              </div>
+              
+              <div className={`w-5/12 ${index % 2 === 0 ? 'order-2 pl-8' : 'text-right pr-8'}`}>
+                <span className="text-xl font-bold text-gray-400">{achievement.year}</span>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
+
+      {/* Testimonials */}
+      <div className="mt-32">
+        <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
+          <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
+            Client Success Stories
+          </span>
+        </h2>
+
+        <div className="relative overflow-hidden">
+          <div className="flex transition-transform duration-700 ease-out"
+               style={{ transform: `translateX(-${activeIndex * 100}%)` }}>
+            {testimonials.map((testimonial, index) => (
+              <div
+                key={index}
+                className="w-full flex-shrink-0 px-4"
+              >
+                <div className="bg-gradient-to-r from-gray-800 to-gray-900 rounded-2xl p-8 shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                  <div className="flex items-center mb-6">
+                    <div className="relative">
+                      <div className="w-20 h-20 rounded-full overflow-hidden ring-4 ring-purple-500">
+                        <Image
+                          width={400}
+                          height={600}
+                          src={testimonial.image}
+                          alt={testimonial.name}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div className="absolute -bottom-2 -right-2 w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M9.983 3v7.391c0 5.704-3.731 9.57-8.983 10.609l-.995-2.151c2.432-.917 3.995-3.638 3.995-5.849h-4v-10h9.983zm14.017 0v7.391c0 5.704-3.748 9.571-9 10.609l-.996-2.151c2.433-.917 3.996-3.638 3.996-5.849h-3.983v-10h9.983z"/>
+                        </svg>
+                      </div>
+                    </div>
+                    <div className="ml-6">
+                      <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                        {testimonial.name}
+                      </h3>
+                      <p className="text-gray-400 font-medium">{testimonial.role}</p>
+                      <p className="text-gray-500">{testimonial.company}</p>
+                    </div>
+                  </div>
+                  <p className="text-xl text-gray-300 italic leading-relaxed">{testimonial.quote}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation dots */}
+          <div className="flex justify-center mt-8 gap-3">
+            {testimonials.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setActiveIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  activeIndex === index
+                    ? 'bg-gradient-to-r from-blue-500 to-purple-600 w-6'
+                    : 'bg-gray-600'
+                }`}
+                aria-label={`Go to testimonial ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+      </div>
+          {/* Footer */}
+      <footer className="bg-gray-900 py-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center">
+            <p className="text-gray-400">&copy; 2023 AI Solutions. All rights reserved.</p>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Github className="w-6 h-6" />
+              </a>
+              <a href="#" className="text-gray-400 hover:text-white">
+                <Globe2Icon className="w-6 h-6" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+      </div>
+
+
       <AnimatePresence>
         {showContactForm && (
           <ProfessionalContactForm onClose={() => setShowContactForm(false)} />
