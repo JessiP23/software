@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu } from 'lucide-react'
+import FuchsiaBackground from './components/Background'
 
 const Icon = ({ name, color }) => {
   const icons = {
@@ -138,6 +139,7 @@ const ParallaxBackground = () => {
   )
 }
 
+
 export default function AdvancedAIProjectsShowcase() {
   const [currentProject, setCurrentProject] = useState(0)
   const [isHovering, setIsHovering] = useState(false)
@@ -221,7 +223,7 @@ export default function AdvancedAIProjectsShowcase() {
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
-      <ParallaxBackground />
+      <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
