@@ -209,7 +209,7 @@ export default function AdvancedAIProjectsShowcase() {
   const [activeIndex, setActiveIndex] = useState(0);
   const [isVisible, setIsVisible] = useState({});
 
-  const [activeSection, setActiveSection] = useState('')
+  const [activeSection, setActiveSection] = useState('projects')
 
   // Add a timeline of achievements
   const achievements = [
@@ -342,34 +342,33 @@ export default function AdvancedAIProjectsShowcase() {
     return () => clearInterval(interval)
   }, [isHovering, projects.length])
 
-  const scrollToSection = (sectionId) => {
-    const section = document.getElementById(sectionId)
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' })
+  const handleScroll = (direction) => {
+    if (projectsRef.current) {
+      const scrollAmount = direction === 'left' ? -300 : 300
+      projectsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
     }
   }
 
-  // Use Intersection Observer to update active section
+  // Intersection Observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        entries.forEach((entry) => {
+        entries.forEach(entry => {
           if (entry.isIntersecting) {
-            setActiveSection(entry.target.id)
+            setIsVisible(prev => ({
+              ...prev,
+              [entry.target.dataset.index]: true
+            }));
           }
-        })
+        });
       },
-      { threshold: 0.5 }
-    )
+      { threshold: 0.1 }
+    );
 
-    const sections = ['hero', 'projects', 'achievements', 'contact']
-    sections.forEach((section) => {
-      const element = document.getElementById(section)
-      if (element) observer.observe(element)
-    })
-
-    return () => observer.disconnect()
-  }, [])
+    document.querySelectorAll('[data-index]').forEach((el) => observer.observe(el));
+    
+    return () => observer.disconnect();
+  }, []);
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
@@ -386,15 +385,8 @@ export default function AdvancedAIProjectsShowcase() {
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className={`px-3 py-2 rounded-md text-sm font-medium ${
-                      activeSection === item.toLowerCase()
-                        ? 'bg-gray-700 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      scrollToSection(item.toLowerCase())
-                    }}
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    onClick={() => setActiveSection(item.toLowerCase())}
                   >
                     {item}
                   </a>
@@ -404,28 +396,29 @@ export default function AdvancedAIProjectsShowcase() {
           </div>
         </div>
       </nav>
-
-      {/* Hero Section */}
-      <section id="hero" className="relative h-screen flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
-        <div className="relative z-10 text-center max-w-3xl px-4">
-          <p className="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
-          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            Build your software with our cutting-edge solutions
-          </h2>
-          <div className="mt-6">
-            <button 
-              onClick={() => setShowContactForm(true)}
-              className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
-            >
-              Schedule an Appointment
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <FuchsiaBackground />
+      <div className="relative h-screen flex items-center justify-center">
       
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
+
+      <div className="relative z-10 text-center max-w-3xl px-4">
+        
+        <p className="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
+        
+        <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
+          Build your software with our cutting-edge solutions
+        </h2>
+        
+        <div className="mt-6">
+          <button 
+            onClick={() => setShowContactForm(true)}
+            className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+          >
+            Schedule an Appointment
+          </button>
+        </div>
+      </div>
+      </div>
+      <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           <motion.div
