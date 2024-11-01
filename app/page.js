@@ -419,30 +419,6 @@ export default function AdvancedAIProjectsShowcase() {
           </div>
 
           <motion.div
-            className="text-center space-y-8 mb-16"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.8 }}
-          >
-            <div className="inline-flex items-center space-x-4">
-              <a 
-                href="#contact"
-                className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full text-lg font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
-              >
-                <span>Schedule a Demo</span>
-                <ExternalLink className="ml-2 w-5 h-5" />
-              </a>
-              <a 
-                href="#github"
-                className="inline-flex items-center px-8  py-4 bg-gray-800 rounded-full text-lg font-semibold hover:bg-gray-700 transition-all duration-300"
-              >
-                <Github className="mr-2 w-5 h-5" />
-                <span>View Projects</span>
-              </a>
-            </div>
-          </motion.div>
-
-          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 1 }}
