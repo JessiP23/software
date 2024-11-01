@@ -580,11 +580,11 @@ export default function AdvancedAIProjectsShowcase() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-white">Follow Us</h4>
+              <h4 className="text-lg font-semibold mb-4 text-white">Follow us</h4>
               <div className="flex space-x-4">
                 {[
-                  { icon: <Github className="w-6 h-6" />, href: "#", label: "GitHub" },
-                  { icon: <Linkedin className="w-6 h-6" />, href: "#", label: "LinkedIn" },
+                  { icon: <Github className="w-6 h-6" />, href: "https://github.com/JessiP23", label: "GitHub" },
+                  { icon: <Linkedin className="w-6 h-6" />, href: "https://linkedin.com/in/jessip-software", label: "LinkedIn" },
                 ].map((social, index) => (
                   <a
                     key={index}
