@@ -264,11 +264,11 @@ export default function AdvancedAIProjectsShowcase() {
       link: "https://generatorscript.vercel.app/"
     },
     {
-      title: "Flashcard",
+      title: "Flashcard (demo)",
       description: "Create flashcards, quizzes, and study guides with our AI-powered educational tool. Enhance learning, improve retention, and boost academic performance with our intelligent study assistant.",
       tags: ["Natural Language Processing", "Machine Learning", "Spaced Repetition Algorithm"],
       image: "/ai3.png",
-      link: "#traffic-management"
+      link: "https://flash-hw.vercel.app/"
     }
   ]
 
