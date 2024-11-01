@@ -399,15 +399,6 @@ export default function AdvancedAIProjectsShowcase() {
           </button>
         </div>
       </div>
-
-      <div className="absolute left-8 bottom-10 flex items-center space-x-3">
-        <button className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
-          ←
-        </button>
-        <button className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
-          →
-        </button>
-      </div>
       </div>
       <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
