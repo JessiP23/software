@@ -342,13 +342,6 @@ export default function AdvancedAIProjectsShowcase() {
     return () => clearInterval(interval)
   }, [isHovering, projects.length])
 
-  const handleScroll = (direction) => {
-    if (projectsRef.current) {
-      const scrollAmount = direction === 'left' ? -300 : 300
-      projectsRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' })
-    }
-  }
-
   // Intersection Observer for scroll animations
   useEffect(() => {
     const observer = new IntersectionObserver(
