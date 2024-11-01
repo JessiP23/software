@@ -335,7 +335,7 @@ export default function AdvancedAIProjectsShowcase() {
 
       <div class="relative z-10 text-center max-w-3xl px-4">
         
-        <p class="text-sm tracking-wider text-white/70 mb-2">HACKING THE CELL</p>
+        <p class="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
         
         <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
           Creating a Biocomputer
