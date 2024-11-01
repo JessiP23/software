@@ -207,6 +207,32 @@ export default function AdvancedAIProjectsShowcase() {
   const [showContactForm, setShowContactForm] = useState(false)
   const projectsRef = useRef(null)
 
+  const [activeSection, setActiveSection] = useState('projects')
+
+  // Add a testimonials section
+  const testimonials = [
+    {
+      name: "John Doe",
+      company: "Tech Innovators Inc.",
+      quote: "This AI solution revolutionized our data analysis process. Highly recommended!",
+      image: "/placeholder.svg?height=100&width=100"
+    },
+    {
+      name: "Jane Smith",
+      company: "Future Systems LLC",
+      quote: "The team's expertise in AI and machine learning is unparalleled. A game-changer for our business.",
+      image: "/placeholder.svg?height=100&width=100"
+    }
+  ]
+
+  // Add a timeline of achievements
+  const achievements = [
+    { year: 2020, title: "Founded the company" },
+    { year: 2021, title: "Launched first AI product" },
+    { year: 2022, title: "Reached 100+ enterprise clients" },
+    { year: 2023, title: "Awarded 'Most Innovative AI Solution'" }
+  ]
+
   const projects = [
     {
       title: "AI-Powered Analytics Platform",
@@ -328,6 +354,30 @@ export default function AdvancedAIProjectsShowcase() {
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
+      {/* Navigation */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <a href="#" className="text-white font-bold text-xl">AI Solutions</a>
+            </div>
+            <div className="hidden md:block">
+              <div className="ml-10 flex items-baseline space-x-4">
+                {['Projects', 'Achievements', 'Testimonials', 'Contact'].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
+                    onClick={() => setActiveSection(item.toLowerCase())}
+                  >
+                    {item}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
       <div className="relative h-screen flex items-center justify-center">
       
       <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
