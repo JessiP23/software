@@ -338,7 +338,7 @@ export default function AdvancedAIProjectsShowcase() {
         <p class="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
         
         <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
-          Creating a Biocomputer
+          Build your software with our cutting-edge solutions
         </h2>
         
         <div class="mt-6">
