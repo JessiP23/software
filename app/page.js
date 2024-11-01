@@ -207,7 +207,7 @@ export default function AdvancedAIProjectsShowcase() {
 
   const projects = [
     {
-      title: "AI-Powered Analytics Platform",
+      title: "Music Recommendation Engine",
       description: "Enterprise-grade analytics solution with predictive modeling and real-time insights",
       tags: ["Machine Learning", "Big Data", "Real-time Analytics"],
       icon: <Database className="w-8 h-8 text-blue-400" />,
@@ -262,6 +262,13 @@ export default function AdvancedAIProjectsShowcase() {
       tags: ["Smart Cities", "IoT", "Computer Vision"],
       image: "/ai2.png",
       link: "#traffic-management"
+    },
+    {
+      title: "Smart City Traffic Management",
+      description: "Optimize urban traffic flow with our AI-driven traffic management system. Reduce congestion, improve safety, and decrease emissions using real-time data analysis and predictive modeling.",
+      tags: ["Smart Cities", "IoT", "Computer Vision"],
+      image: "/ai3.png",
+      link: "#traffic-management"
     }
   ]
 
@@ -270,7 +277,7 @@ export default function AdvancedAIProjectsShowcase() {
       title: "AI-Powered Code Assistant",
       description: "Boost developer productivity with our AI-powered code assistant. Get intelligent code suggestions, automated refactoring, and context-aware documentation in real-time.",
       tags: ["AI", "Developer Tools", "Code Analysis"],
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/software.png",
       link: "#code-assistant",
       technologies: [
         { name: "Python", icon: "Globe" },
@@ -282,7 +289,7 @@ export default function AdvancedAIProjectsShowcase() {
       title: "Quantum Computing Simulator",
       description: "Explore the world of quantum computing with our  advanced simulator. Test quantum algorithms, visualize quantum states, and accelerate quantum research and education.",
       tags: ["Quantum Computing", "Simulation", "Education"],
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/software1.png",
       link: "#quantum-simulator",
       technologies: [
         { name: "Q#", icon: "Zap" },
@@ -294,7 +301,7 @@ export default function AdvancedAIProjectsShowcase() {
       title: "Blockchain-based Supply Chain",
       description: "Revolutionize supply chain management with our blockchain-powered solution. Ensure transparency, traceability, and security across the entire supply chain network.",
       tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
-      image: "/placeholder.svg?height=600&width=800",
+      image: "/software2.png",
       link: "#blockchain-supply-chain",
       technologies: [
         { name: "Solidity", icon: "Database" },
@@ -302,6 +309,18 @@ export default function AdvancedAIProjectsShowcase() {
         { name: "React", icon: "Zap" },
       ]
     },
+    {
+      title: "Blockchain-based Supply Chain",
+      description: "Revolutionize supply chain management with our blockchain-powered solution. Ensure transparency, traceability, and security across the entire supply chain network.",
+      tags: ["Blockchain", "Supply Chain", "Smart Contracts"],
+      image: "/software3.png",
+      link: "#blockchain-supply-chain",
+      technologies: [
+        { name: "Solidity", icon: "Database" },
+        { name: "Ethereum", icon: "Globe" },
+        { name: "React", icon: "Zap" },
+      ]
+    }
   ]
 
 
