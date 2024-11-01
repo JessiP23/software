@@ -250,23 +250,23 @@ export default function AdvancedAIProjectsShowcase() {
       link: "https://trk-murex.vercel.app/"
     },
     {
-      title: "Intelligent Customer Service Bot",
-      description: "Enhance customer satisfaction with our advanced NLP-powered chatbot. Handle inquiries 24/7, reduce response times, and provide personalized support at scale.",
-      tags: ["NLP", "Customer Service", "Chatbot"],
+      title: "Song Rating",
+      description: "Upload music, receive personalized insights and sentiment analysis for song ratings, and enjoy a tailored experience that enhances your musical journey, all powered by AI.",
+      tags: ["NLP", "Machine Learning", "Chatbot"],
       image: "/ai1.png",
-      link: "#customer-service-bot"
+      link: "https://jrating.vercel.app/?vercelToolbarCode=iab2N3N785sXX30"
     },
     {
-      title: "Smart City Traffic Management",
-      description: "Optimize urban traffic flow with our AI-driven traffic management system. Reduce congestion, improve safety, and decrease emissions using real-time data analysis and predictive modeling.",
-      tags: ["Smart Cities", "IoT", "Computer Vision"],
+      title: "Generation Script (down)",
+      description: "Optimize generation of scripts, landing pages, social media posts, and more with our AI-powered script generation tool. Boost productivity, reduce errors, and streamline content creation.",
+      tags: ["AI", "Llama3.1", "Vector Database"],
       image: "/ai2.png",
-      link: "#traffic-management"
+      link: "https://generatorscript.vercel.app/"
     },
     {
-      title: "Smart City Traffic Management",
-      description: "Optimize urban traffic flow with our AI-driven traffic management system. Reduce congestion, improve safety, and decrease emissions using real-time data analysis and predictive modeling.",
-      tags: ["Smart Cities", "IoT", "Computer Vision"],
+      title: "Flashcard",
+      description: "Create flashcards, quizzes, and study guides with our AI-powered educational tool. Enhance learning, improve retention, and boost academic performance with our intelligent study assistant.",
+      tags: ["Natural Language Processing", "Machine Learning", "Spaced Repetition Algorithm"],
       image: "/ai3.png",
       link: "#traffic-management"
     }
