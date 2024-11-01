@@ -405,18 +405,14 @@ export default function AdvancedAIProjectsShowcase() {
         </div>
       </nav>
 
-      <div className="relative h-screen flex items-center justify-center">
-      
+      {/* Hero Section */}
+      <section id="hero" className="relative h-screen flex items-center justify-center">
         <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
-
         <div className="relative z-10 text-center max-w-3xl px-4">
-        
           <p className="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
-        
           <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
             Build your software with our cutting-edge solutions
           </h2>
-        
           <div className="mt-6">
             <button 
               onClick={() => setShowContactForm(true)}
@@ -426,7 +422,8 @@ export default function AdvancedAIProjectsShowcase() {
             </button>
           </div>
         </div>
-      </div>
+      </section>
+      
       <FuchsiaBackground />
       <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
