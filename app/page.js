@@ -377,8 +377,15 @@ export default function AdvancedAIProjectsShowcase() {
                   <a
                     key={item}
                     href={`#${item.toLowerCase()}`}
-                    className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-                    onClick={() => setActiveSection(item.toLowerCase())}
+                    className={`px-3 py-2 rounded-md text-sm font-medium ${
+                      activeSection === item.toLowerCase()
+                        ? 'bg-gray-700 text-white'
+                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
+                    }`}
+                    onClick={(e) => {
+                      e.preventDefault()
+                      scrollToSection(item.toLowerCase())
+                    }}
                   >
                     {item}
                   </a>
@@ -388,6 +395,7 @@ export default function AdvancedAIProjectsShowcase() {
           </div>
         </div>
       </nav>
+
       <div className="relative h-screen flex items-center justify-center">
       
       <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
