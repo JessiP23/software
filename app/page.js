@@ -343,7 +343,7 @@ export default function AdvancedAIProjectsShowcase() {
         
         <div className="mt-6">
           <a href="#" className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white border border-pink-500 rounded-full hover:bg-pink-500 transition">
-            Appointment
+            Schedule an Appointment
           </a>
         </div>
       </div>
