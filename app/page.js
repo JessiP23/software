@@ -274,14 +274,14 @@ export default function AdvancedAIProjectsShowcase() {
       title: "Chatbot clothing AI",
       description: "Intelligent virtual assistant designed to analyze user preferences and recommend personalized fashion choices, enhancing the online shopping experience through interactive dialogue and tailored suggestions.",
       tags: ["Graph Database", "Web Scraping", "Natural Language Processing", "Prompt Engineering"],
-      image: "/ai3.png",
+      image: "/chatbot.png",
       link: "https://youtu.be/54uBUoY3WRg"
     }
   ]
 
   const softwareProjects = [
     {
-      title: "3D Structure Generator (Process)",
+      title: "3D Structure Generator",
       description: "Generate your own 3D structure objects with a single request, enabling customization.",
       tags: ["NLP", "OpenGL", "Deep Learning", "GANs"],
       image: "/software1.png",
