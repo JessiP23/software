@@ -283,8 +283,8 @@ export default function AdvancedAIProjectsShowcase() {
       tags: ["NLP", "Deep Learning", "Text Analytics"],
       icon: <Terminal className="w-8 h-8 text-purple-400" />,
       stats: {
-        languages: "25+",
-        accuracy: "98%",
+        languages: "2",
+        accuracy: "87%",
         documents: "10k+"
       }
     },
