@@ -329,36 +329,36 @@ export default function AdvancedAIProjectsShowcase() {
 
   return (
     <div className="relative min-h-screen bg-black text-white overflow-hidden">
-      <div class="relative h-screen flex items-center justify-center">
+      <div className="relative h-screen flex items-center justify-center">
       
-      <div class="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
+      <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
 
-      <div class="relative z-10 text-center max-w-3xl px-4">
+      <div className="relative z-10 text-center max-w-3xl px-4">
         
-        <p class="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
+        <p className="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
         
-        <h2 class="text-5xl md:text-6xl font-extrabold leading-tight">
+        <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
           Build your software with our cutting-edge solutions
         </h2>
         
-        <div class="mt-6">
-          <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white border border-pink-500 rounded-full hover:bg-pink-500 transition">
-            WATCH VIDEO
+        <div className="mt-6">
+          <a href="#" className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white border border-pink-500 rounded-full hover:bg-pink-500 transition">
+            Appointment
           </a>
         </div>
       </div>
 
-      <div class="absolute left-8 bottom-10 flex items-center space-x-3">
-        <button class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
+      <div className="absolute left-8 bottom-10 flex items-center space-x-3">
+        <button className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
           ←
         </button>
-        <button class="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
+        <button className="w-10 h-10 flex items-center justify-center rounded-full border-2 border-white text-white/70 hover:text-white hover:bg-white/10 transition">
           →
         </button>
       </div>
 
-      <div class="absolute right-8 bottom-10 text-right">
-        <p class="text-white/70">01 / 05</p>
+      <div className="absolute right-8 bottom-10 text-right">
+        <p className="text-white/70">01 / 05</p>
       </div>
       </div>
       <FuchsiaBackground />
