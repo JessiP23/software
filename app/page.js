@@ -437,7 +437,7 @@ export default function AdvancedAIProjectsShowcase() {
         )}
       </AnimatePresence>
 
-      <section id='home' className="relative h-screen flex items-center justify-center">
+      <section id='home' className="relative min-h-screen flex items-center justify-center pt-20">
       
         <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
 
