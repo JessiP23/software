@@ -240,7 +240,7 @@ export default function AdvancedAIProjectsShowcase() {
   const teamMembers = [
     { name: "Jessi Pavia Martinez", role: "Founder && AI/ML Engineer" },
     { name: "Chanice Stlouis", role: "Backend Engineer" },
-    {name: 'Alan Martinez Monroy', role: 'Business Growth Specialist'},
+    {name: 'Alan Martinez Monroy', role: 'Technical Sales Consultant'},
   ]
 
   // Add a timeline of achievements
@@ -490,7 +490,7 @@ export default function AdvancedAIProjectsShowcase() {
 
       <FuchsiaBackground />
       
-      <div className="relative z-10 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10">
       <section id="projects" className="relative min-h-screen py-24 overflow-hidden text-center">
       {/* Animated background elements */}
       <div className="fixed inset-0 pointer-events-none">
