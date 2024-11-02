@@ -439,7 +439,7 @@ export default function AdvancedAIProjectsShowcase() {
 
       <section id='home' className="relative min-h-screen flex items-center justify-center pt-20">
       
-        <div className="absolute inset-0 bg-gradient-to-r from-purple-700 to-blue-800 opacity-75"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(67,56,202,0.1),transparent_50%)]"></div>
 
         <div className="relative z-10 text-center max-w-3xl px-4">
           
