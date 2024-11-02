@@ -238,7 +238,7 @@ export default function AdvancedAIProjectsShowcase() {
   ]
 
   const teamMembers = [
-    { name: "Jessi Pavia Martinez", role: "Founder && AI/ML Engineer" },
+    { name: "Jessi Pavia Martinez", role: "CEO && AI/ML Engineer" },
     { name: "Chanice Stlouis", role: "Backend Engineer" },
     {name: 'Alan Martinez Monroy', role: 'Technical Sales Consultant'},
   ]
