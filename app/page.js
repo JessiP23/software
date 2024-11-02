@@ -209,7 +209,6 @@ export default function AdvancedAIProjectsShowcase() {
   const projectsRef = useRef(null)
   const [isVisible, setIsVisible] = useState({});
 
-  const [activeSection, setActiveSection] = useState('projects')
   // successful message
   const [showNotification, setShowNotification] = useState(false)
 
