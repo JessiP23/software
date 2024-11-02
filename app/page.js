@@ -241,7 +241,7 @@ export default function AdvancedAIProjectsShowcase() {
   const teamMembers = [
     { name: "Jessi Pavia Martinez", role: "Founder && AI/ML Engineer" },
     { name: "Chanice Stlouis", role: "Backend Engineer" },
-    {name: 'Alan Joan Martinez Monroy', role: 'Business Growth Specialist'},
+    {name: 'Alan Martinez Monroy', role: 'Business Growth Specialist'},
   ]
 
   // Add a timeline of achievements
