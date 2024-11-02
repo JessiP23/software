@@ -524,16 +524,6 @@ export default function AdvancedAIProjectsShowcase() {
         {/* Projects Carousel */}
         <div className="relative mb-32">
           {/* Navigation Arrows */}
-          <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-900 to-transparent z-10 flex items-center justify-start">
-            <button className="p-2 rounded-full bg-gray-800/50 backdrop-blur-sm text-white hover:bg-gray-700/50 transition-all">
-              <ChevronLeft className="w-6 h-6" />
-            </button>
-          </div>
-          <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-gray-900 to-transparent z-10 flex items-center justify-end">
-            <button className="p-2 rounded-full bg-gray-800/50 backdrop-blur-sm text-white hover:bg-gray-700/50 transition-all">
-              <ChevronRight className="w-6 h-6" />
-            </button>
-          </div>
           
           <div className="flex overflow-x-hidden" ref={projectsRef}>
             <motion.div
