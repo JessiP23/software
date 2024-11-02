@@ -396,32 +396,28 @@ export default function AdvancedAIProjectsShowcase() {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden flex flex-col">
       {/* Navigation */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/90 backdrop-filter backdrop-blur-lg border-b border-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             <div className="flex items-center">
-              <a href="#" className="text-white font-bold text-xl">AI Solutions</a>
+              <a href="#" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
+                AI Solutions
+              </a>
             </div>
-            <div className="hidden md:block">
-              <div className="ml-10 flex items-baseline space-x-4">
-                {['Home', 'Projects', 'Achievements'].map((item) => (
-                  <a
-                    key={item}
-                    href={`#${item.toLowerCase()}`}
-                    className={`px-3 py-2 rounded-md text-sm font-medium ${
-                      activeSection === item.toLowerCase()
-                        ? 'bg-gray-700 text-white'
-                        : 'text-gray-300 hover:bg-gray-700 hover:text-white'
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault()
-                      scrollToSection(item.toLowerCase())
-                    }}
-                  >
-                    {item}
-                  </a>
-                ))}
-              </div>
+            <div className="hidden md:flex items-center space-x-8">
+              {['Home', 'Projects', 'Achievements'].map((item) => (
+                <a
+                  key={item}
+                  href={`#${item.toLowerCase()}`}
+                  className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 hover:text-white text-gray-300 relative group"
+                >
+                  {item}
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                </a>
+              ))}
+              <button className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105">
+                Contact Us
+              </button>
             </div>
           </div>
         </div>
