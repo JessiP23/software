@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useState, useEffect, useRef } from 'react'
-import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
+import { motion, AnimatePresence, useScroll, useTransform, useAnimation } from 'framer-motion'
 import Image from 'next/image'
 import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail, CheckCircle, User, Sparkles, Brain, X, Menu } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
@@ -42,7 +42,7 @@ const Icon = ({ name, color }) => {
 
 const ProjectCard = ({ project, isActive, onClick }) => (
   <motion.div
-    whileHover={{ scale: 1.05, rotateY: 5 }}
+    whileHover={{ scale: 1.02, rotateY: 5 }}
     whileTap={{ scale: 0.95 }}
     className={`bg-gradient-to-br from-gray-800 to-gray-900 rounded-xl p-6 cursor-pointer transition-all duration-300 ${
       isActive ? 'ring-2 ring-blue-500 shadow-xl' : 'shadow-lg'
@@ -57,7 +57,10 @@ const ProjectCard = ({ project, isActive, onClick }) => (
     <p className="text-gray-300 mb-4">{project.description}</p>
     <div className="flex flex-wrap gap-2 mb-4">
       {project.tags.map((tag, index) => (
-        <span key={index} className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-sm font-semibold">
+        <span
+          key={index}
+          className="px-3 py-1 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-sm font-semibold"
+        >
           {tag}
         </span>
       ))}
@@ -410,6 +413,43 @@ export default function AdvancedAIProjectsShowcase() {
     return () => observer.disconnect();
   }, []);
 
+  const controls = useAnimation();
+
+  const scrollToProject = (index) => {
+    const container = projectsRef.current;
+    const cards = container.getElementsByClassName('project-card');
+    if (cards[index]) {
+      const scrollLeft = cards[index].offsetLeft - container.offsetLeft;
+      container.scrollTo({
+        left: scrollLeft,
+        behavior: 'smooth'
+      });
+      setCurrentProject(index);
+    }
+  };
+
+  // Handle scroll events to update the current project
+  const handleScroll = () => {
+    const container = projectsRef.current;
+    const cards = container.getElementsByClassName('project-card');
+    const scrollLeft = container.scrollLeft;
+    
+    // Find the card that is most visible
+    let minDistance = Infinity;
+    let closestIndex = 0;
+    
+    Array.from(cards).forEach((card, index) => {
+      const cardLeft = card.offsetLeft - container.offsetLeft;
+      const distance = Math.abs(cardLeft - scrollLeft);
+      if (distance < minDistance) {
+        minDistance = distance;
+        closestIndex = index;
+      }
+    });
+    
+    setCurrentProject(closestIndex);
+  };
+
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden flex flex-col">
       {/* Navigation */}
@@ -576,35 +616,58 @@ export default function AdvancedAIProjectsShowcase() {
             </motion.div>
 
             {/* Projects Carousel */}
-            <div className="relative mb-32">              
-              <div className="flex overflow-x-hidden" ref={projectsRef}>
-                <motion.div
-                  className="flex"
-                  drag="x"
-                  dragConstraints={projectsRef}
-                  style={{ width: `${projects.length * 100}%` }}
-                >
-                  {projects.map((project, index) => (
-                    <motion.div
-                      key={index}
-                      className="w-full md:w-1/2 lg:w-1/3 p-4"
-                      initial={{ opacity: 0, x: 50 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.2 }}
-                    >
-                      <div className="group relative rounded-xl overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90 group-hover:from-transparent group-hover:to-gray-900/95 transition-all duration-300" />
-                        <ProjectCard
-                          project={project}
-                          isActive={index === currentProject}
-                          onClick={() => setCurrentProject(index)}
-                        />
-                      </div>
-                    </motion.div>
-                  ))}
-                </motion.div>
+            <div className="relative mb-32">
+      <div 
+        className="relative overflow-x-hidden scrollbar-none scroll-smooth" 
+        ref={projectsRef}
+        onScroll={handleScroll}
+      >
+        <motion.div
+          className="flex flex-nowrap min-w-full"
+          drag="x"
+          dragConstraints={projectsRef}
+          onDragEnd={(e, info) => {
+            // Update current project after drag
+            handleScroll();
+          }}
+        >
+          {projects.map((project, index) => (
+            <motion.div
+              key={index}
+              className="project-card flex-none w-full sm:w-[85vw] md:w-[600px] p-4"
+              initial={{ opacity: 0, x: 50 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ delay: index * 0.2 }}
+            >
+              <div className="group relative rounded-xl overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90 group-hover:from-transparent group-hover:to-gray-900/95 transition-all duration-300" />
+                <ProjectCard
+                  project={project}
+                  isActive={index === currentProject}
+                  onClick={() => scrollToProject(index)}
+                />
               </div>
-            </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
+      
+      {/* Indicators */}
+      <div className="flex justify-center mt-4 gap-2">
+        {projects.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => scrollToProject(index)}
+            className={`h-2 transition-all duration-300 rounded-full ${
+              index === currentProject 
+                ? 'w-8 bg-blue-500' 
+                : 'w-2 bg-gray-400 hover:bg-gray-300'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
+      </div>
+    </div>
 
             {/* Featured Projects */}
             <motion.div
