@@ -714,28 +714,28 @@ export default function AdvancedAIProjectsShowcase() {
             Our team leverages cutting-edge technologies to deliver innovative AI solutions. 
             Here is a glimpse into our tech stack:
           </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
-        {technologies.map((tech, index) => (
-          <motion.div
-            key={index}
-            className="group"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: index * 0.1 }}
-          >
-            <div className="bg-gray-800 rounded-lg p-6 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/20 h-full flex flex-col">
-              <div className={`w-16 h-16 rounded-full bg-${tech.color}-500/20 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110`}>
-                <tech.icon className={`w-8 h-8 text-${tech.color}-400`} />
-              </div>
-              <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors duration-300">{tech.name}</h3>
-              <p className="text-gray-400 text-sm flex-grow">{tech.description}</p>
-              <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                <a href="#" className="text-blue-400 text-sm hover:underline">Learn more →</a>
-              </div>
-            </div>
-          </motion.div>
-        ))}
-      </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
+            {technologies.map((tech, index) => (
+              <motion.div
+                key={index}
+                className="group"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: index * 0.1 }}
+              >
+                <div className="bg-gray-800 rounded-lg p-6 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/20 h-full flex flex-col">
+                  <div className={`w-16 h-16 rounded-full bg-${tech.color}-500/20 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110`}>
+                    <tech.icon className={`w-8 h-8 text-${tech.color}-400`} />
+                  </div>
+                  <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors duration-300">{tech.name}</h3>
+                  <p className="text-gray-400 text-sm flex-grow">{tech.description}</p>
+                  <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <a href="#" className="text-blue-400 text-sm hover:underline">Learn more →</a>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
     </section>
     <footer className="relative bg-gray-950 pt-24 pb-12 border-t border-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
