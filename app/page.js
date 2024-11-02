@@ -437,27 +437,41 @@ export default function AdvancedAIProjectsShowcase() {
         )}
       </AnimatePresence>
 
-      <section id='home' className="relative min-h-screen flex items-center justify-center pt-20">
-      
+      {/* Enhanced Hero Section */}
+      <section id="home" className="relative min-h-screen flex items-center justify-center pt-20">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(67,56,202,0.1),transparent_50%)]"></div>
-
-        <div className="relative z-10 text-center max-w-3xl px-4">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-gray-900/50 to-gray-950"></div>
+        
+        <motion.div 
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="relative z-10 text-center max-w-4xl px-4 mx-auto"
+        >
+          <div className="inline-block mb-6">
+            <span className="px-4 py-2 rounded-full text-sm font-medium bg-gray-800/50 border border-gray-700 text-gray-300">
+              Innovative Software Solutions
+            </span>
+          </div>
           
-          <p className="text-sm tracking-wider text-white/70 mb-2">Software Solutions</p>
+          <h1 className="text-5xl md:text-7xl font-bold mb-8 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 leading-tight">
+            Transform Your Business with AI Solutions
+          </h1>
           
-          <h2 className="text-5xl md:text-6xl font-extrabold leading-tight">
-            Build your software with our cutting-edge solutions
-          </h2>
+          <p className="text-xl text-gray-300 mb-12 max-w-2xl mx-auto">
+            Empowering enterprises with cutting-edge artificial intelligence and machine learning solutions that drive growth and innovation.
+          </p>
           
-          <div className="mt-6">
-            <button 
-              onClick={() => setShowContactForm(true)}
-              className="inline-flex items-center justify-center px-6 py-3 text-lg font-medium text-white bg-gradient-to-r from-pink-500 to-purple-600 rounded-full hover:from-pink-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
-            >
-              Schedule an Appointment
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button onClick={() => setShowContactForm(true)} className="w-full sm:w-auto px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg font-medium text-white transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105">
+              Schedule a Consultation
             </button>
           </div>
-        </div>
+        </motion.div>
+
+        {/* Decorative elements */}
+        <div className="absolute bottom-0 left-0 right-0 h-64 bg-gradient-to-t from-gray-950 to-transparent"></div>
+        <div className="absolute -bottom-48 left-1/2 transform -translate-x-1/2 w-[800px] h-[800px] bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-full filter blur-3xl opacity-20"></div>
       </section>
 
       <FuchsiaBackground />
