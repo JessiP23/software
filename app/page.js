@@ -714,7 +714,7 @@ export default function AdvancedAIProjectsShowcase() {
         Our team leverages cutting-edge technologies to deliver innovative AI solutions. 
         Here is a glimpse into our tech stack:
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
         {technologies.map((tech, index) => (
           <motion.div
             key={index}
