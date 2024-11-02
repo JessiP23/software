@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail, CheckCircle, User } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail, CheckCircle, User, Sparkles, Brain } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 import ProfessionalContactForm from './components/Contact'
 import Link from 'next/link'
@@ -371,6 +371,7 @@ export default function AdvancedAIProjectsShowcase() {
     }
   }
 
+  
   const handleEmailSuccess = () => {
     setShowNotification(true)
     setTimeout(() => setShowNotification(false), 5000) // Hide notification after 5 seconds
@@ -562,11 +563,11 @@ export default function AdvancedAIProjectsShowcase() {
               className="mb-32"
             >
               <h2 className="text-5xl font-bold text-center mb-16 relative inline-block">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300">
                   Featured Projects
                 </span>
                 <motion.div 
-                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-300 to-white"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 1.2, duration: 0.8 }}
@@ -636,7 +637,7 @@ export default function AdvancedAIProjectsShowcase() {
         </section>
         <section id='achievements' className="mb-32">
           <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
-          <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
+          <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-white after:to-blue-300 after:bottom-0 after:left-0">
             Our Milestones
           </span>
         </h2>
@@ -706,37 +707,76 @@ export default function AdvancedAIProjectsShowcase() {
     </section>
 
         {/* New Technologies Section */}
-        <section id="technologies" className="mb-32">
-          <h2 className="text-4xl font-bold text-center mb-12">
-            Technologies We Master
-          </h2>
-          <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
-            Our team leverages cutting-edge technologies to deliver innovative AI solutions. 
-            Here is a glimpse into our tech stack:
+        <section id="technologies" className="relative min-h-screen py-24 overflow-hidden bg-gradient-to-b from-gray-900 to-black">
+      {/* Section Header */}
+      <div className="relative z-10 mb-20">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center"
+        >
+          <div className="flex items-center justify-center mb-4">
+            <Sparkles className="w-6 h-6 text-blue-400 mr-2" />
+            <h2 className="text-5xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              Technologies We Master
+            </h2>
+            <Sparkles className="w-6 h-6 text-blue-400 ml-2" />
+          </div>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg">
+            Our team harnesses the power of cutting-edge technologies to craft 
+            innovative AI solutions that define the future of technology.
           </p>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
-            {technologies.map((tech, index) => (
-              <motion.div
-                key={index}
-                className="group"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: index * 0.1 }}
-              >
-                <div className="bg-gray-800 rounded-lg p-6 transition-all duration-300 group-hover:shadow-lg group-hover:shadow-blue-500/20 h-full flex flex-col">
-                  <div className={`w-16 h-16 rounded-full bg-${tech.color}-500/20 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110`}>
+        </motion.div>
+      </div>
+
+      {/* Technologies Grid */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          {technologies.map((tech, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: index * 0.1 }}
+              whileHover={{ scale: 1.02 }}
+              className="group"
+            >
+              <div className="relative bg-gray-800/50 backdrop-blur-lg rounded-xl p-6 h-full border border-gray-700/50 transition-all duration-300 hover:border-blue-500/50">
+                {/* Glow effect */}
+                <div className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-500/0 to-purple-500/0 group-hover:from-blue-500/10 group-hover:to-purple-500/10 transition-all duration-300" />
+
+                {/* Tech Icon */}
+                <div className="relative">
+                  <div className={`w-16 h-16 rounded-full bg-gradient-to-br from-${tech.color}-500/20 to-${tech.color}-500/10 flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110 group-hover:shadow-lg group-hover:shadow-${tech.color}-500/20`}>
                     <tech.icon className={`w-8 h-8 text-${tech.color}-400`} />
                   </div>
-                  <h3 className="text-xl font-semibold mb-2 group-hover:text-blue-400 transition-colors duration-300">{tech.name}</h3>
-                  <p className="text-gray-400 text-sm flex-grow">{tech.description}</p>
-                  <div className="mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <a href="#" className="text-blue-400 text-sm hover:underline">Learn more →</a>
-                  </div>
                 </div>
-              </motion.div>
-            ))}
-          </div>
-        </section>
+
+                {/* Content */}
+                <h3 className="text-xl font-bold mb-3 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent group-hover:from-blue-400 group-hover:to-purple-400 transition-all duration-300">
+                  {tech.name}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed">
+                  {tech.description}
+                </p>
+
+                {/* Learn More Link */}
+                <motion.div 
+                  className="mt-4 opacity-0 group-hover:opacity-100 transition-all duration-300"
+                  whileHover={{ x: 5 }}
+                >
+                  <a href="#" className="inline-flex items-center text-blue-400 text-sm hover:text-blue-300">
+                    Learn more
+                    <Zap className="w-4 h-4 ml-1" />
+                  </a>
+                </motion.div>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </div>
+    </section>
         <footer className="relative bg-gray-950 pt-24 pb-12 border-t border-gray-800/50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
