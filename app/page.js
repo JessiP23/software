@@ -737,69 +737,69 @@ export default function AdvancedAIProjectsShowcase() {
             ))}
           </div>
         </section>
-    <footer className="relative bg-gray-950 pt-24 pb-12 border-t border-gray-800/50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-            <div>
-              <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-6">
-                AI Solutions
-              </h3>
-              <p className="text-gray-400 max-w-xs">
-                Transforming businesses through innovative AI and machine learning solutions.
-              </p>
-            </div>
-            
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
-              <ul className="space-y-4">
-                {['Home', 'Projects', 'Achievements'].map((item) => (
-                  <li key={item}>
-                    <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-200">
-                      {item}
+        <footer className="relative bg-gray-950 pt-24 pb-12 border-t border-gray-800/50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+              <div>
+                <h3 className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-400 mb-6">
+                  AI Solutions
+                </h3>
+                <p className="text-gray-400 max-w-xs">
+                  Transforming businesses through innovative AI and machine learning solutions.
+                </p>
+              </div>
+              
+              <div>
+                <h4 className="text-lg font-semibold mb-6 text-white">Quick Links</h4>
+                <ul className="space-y-4">
+                  {['Home', 'Projects', 'Achievements'].map((item) => (
+                    <li key={item}>
+                      <a href={`#${item.toLowerCase()}`} className="text-gray-400 hover:text-white transition-colors duration-200">
+                        {item}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div>
+                <h4 className="text-lg font-semibold mb-6 text-white">Contact</h4>
+                <ul className="space-y-4">
+                  <li>
+                    <a href="mailto:jessipav@trk-fndr.store" className="flex items-center text-gray-400 hover:text-white transition-colors duration-200">
+                      <Mail className="w-5 h-5 mr-3" />
+                      <span>jessipav@trk-fndr.store</span>
                     </a>
                   </li>
-                ))}
-              </ul>
-            </div>
+                  <li>
+                    <a href="tel:+16463875453" className="flex items-center text-gray-400 hover:text-white transition-colors duration-200">
+                      <Phone className="w-5 h-5 mr-3" />
+                      <span>+1 (646) 387-5453</span>
+                    </a>
+                  </li>
+                </ul>
+              </div>
 
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-white">Contact</h4>
-              <ul className="space-y-4">
-                <li>
-                  <a href="mailto:jessipav@trk-fndr.store" className="flex items-center text-gray-400 hover:text-white transition-colors duration-200">
-                    <Mail className="w-5 h-5 mr-3" />
-                    <span>jessipav@trk-fndr.store</span>
+              <div>
+                <h4 className="text-lg font-semibold mb-6 text-white">Follow Us</h4>
+                <div className="flex space-x-4">
+                  <a href="https://github.com/JessiP23" className="p-2 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300">
+                    <Github className="w-6 h-6" />
                   </a>
-                </li>
-                <li>
-                  <a href="tel:+16463875453" className="flex items-center text-gray-400 hover:text-white transition-colors duration-200">
-                    <Phone className="w-5 h-5 mr-3" />
-                    <span>+1 (646) 387-5453</span>
+                  <a href="https://linkedin.com/in/jessip-software" className="p-2 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300">
+                    <Linkedin className="w-6 h-6" />
                   </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-white">Follow Us</h4>
-              <div className="flex space-x-4">
-                <a href="https://github.com/JessiP23" className="p-2 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300">
-                  <Github className="w-6 h-6" />
-                </a>
-                <a href="https://linkedin.com/in/jessip-software" className="p-2 bg-gray-800 rounded-lg text-gray-400 hover:text-white hover:bg-gray-700 transition-all duration-300">
-                  <Linkedin className="w-6 h-6" />
-                </a>
+                </div>
               </div>
             </div>
-          </div>
 
-          <div className="mt-12 pt-8 border-t border-gray-800">
-            <p className="text-center text-gray-400">
-              © {new Date().getFullYear()} AI Solutions. All rights reserved.
-            </p>
+            <div className="mt-12 pt-8 border-t border-gray-800">
+              <p className="text-center text-gray-400">
+                © {new Date().getFullYear()} AI Solutions. All rights reserved.
+              </p>
+            </div>
           </div>
-        </div>
-      </footer>
+        </footer>
       </div>
 
 
