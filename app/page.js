@@ -576,9 +576,7 @@ export default function AdvancedAIProjectsShowcase() {
             </motion.div>
 
             {/* Projects Carousel */}
-            <div className="relative mb-32">
-              {/* Navigation Arrows */}
-              
+            <div className="relative mb-32">              
               <div className="flex overflow-x-hidden" ref={projectsRef}>
                 <motion.div
                   className="flex"
