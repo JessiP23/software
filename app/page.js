@@ -707,9 +707,9 @@ export default function AdvancedAIProjectsShowcase() {
 
         {/* New Technologies Section */}
         <section id="technologies" className="mb-32">
-      <h2 className="text-4xl font-bold text-center mb-12">
-        Technologies We Master
-      </h2>
+          <h2 className="text-4xl font-bold text-center mb-12">
+            Technologies We Master
+          </h2>
       <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
         Our team leverages cutting-edge technologies to deliver innovative AI solutions. 
         Here is a glimpse into our tech stack:
