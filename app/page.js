@@ -603,11 +603,11 @@ export default function AdvancedAIProjectsShowcase() {
               className="space-y-24"
             >
               <h2 className="text-5xl font-bold text-center mb-16 relative inline-block">
-                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-300">
                   Software Solutions
                 </span>
                 <motion.div 
-                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-white"
                   initial={{ scaleX: 0 }}
                   animate={{ scaleX: 1 }}
                   transition={{ delay: 1.4, duration: 0.8 }}
