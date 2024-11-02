@@ -491,151 +491,151 @@ export default function AdvancedAIProjectsShowcase() {
       <FuchsiaBackground />
       
       <div className="relative z-10">
-      <section id="projects" className="relative min-h-screen py-24 overflow-hidden text-center">
-      {/* Animated background elements */}
-      <div className="fixed inset-0 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_theme(colors.blue.500/0.1),_transparent_50%)]" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_theme(colors.purple.500/0.1),_transparent_50%)]" />
-      </div>
+        <section id="projects" className="relative min-h-screen py-24 overflow-hidden text-center">
+        {/* Animated background elements */}
+          <div className="fixed inset-0 pointer-events-none">
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_theme(colors.blue.500/0.1),_transparent_50%)]" />
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,_theme(colors.purple.500/0.1),_transparent_50%)]" />
+          </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Header Section */}
-        <motion.div
-          initial={{ opacity: 0, y: -20 }}
-          animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-20"
-        >
-          <h1 className="text-7xl font-extrabold mb-6 relative inline-block">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 animate-text-gradient">
-              Next-Gen AI Solutions
-            </span>
-            <motion.div 
-              className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 0.5, duration: 0.8 }}
-            />
-          </h1>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Empowering enterprises with cutting-edge artificial intelligence and machine learning solutions
-          </p>
-        </motion.div>
-
-        {/* Projects Carousel */}
-        <div className="relative mb-32">
-          {/* Navigation Arrows */}
-          
-          <div className="flex overflow-x-hidden" ref={projectsRef}>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            {/* Header Section */}
             <motion.div
-              className="flex"
-              drag="x"
-              dragConstraints={projectsRef}
-              style={{ width: `${projects.length * 100}%` }}
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="text-center mb-20"
             >
-              {projects.map((project, index) => (
+              <h1 className="text-7xl font-extrabold mb-6 relative inline-block">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-500 to-blue-600 animate-text-gradient">
+                  Next-Gen AI Solutions
+                </span>
+                <motion.div 
+                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 0.5, duration: 0.8 }}
+                />
+              </h1>
+              <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+                Empowering enterprises with cutting-edge artificial intelligence and machine learning solutions
+              </p>
+            </motion.div>
+
+            {/* Projects Carousel */}
+            <div className="relative mb-32">
+              {/* Navigation Arrows */}
+              
+              <div className="flex overflow-x-hidden" ref={projectsRef}>
+                <motion.div
+                  className="flex"
+                  drag="x"
+                  dragConstraints={projectsRef}
+                  style={{ width: `${projects.length * 100}%` }}
+                >
+                  {projects.map((project, index) => (
+                    <motion.div
+                      key={index}
+                      className="w-full md:w-1/2 lg:w-1/3 p-4"
+                      initial={{ opacity: 0, x: 50 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ delay: index * 0.2 }}
+                    >
+                      <div className="group relative rounded-xl overflow-hidden">
+                        <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90 group-hover:from-transparent group-hover:to-gray-900/95 transition-all duration-300" />
+                        <ProjectCard
+                          project={project}
+                          isActive={index === currentProject}
+                          onClick={() => setCurrentProject(index)}
+                        />
+                      </div>
+                    </motion.div>
+                  ))}
+                </motion.div>
+              </div>
+            </div>
+
+            {/* Featured Projects */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+              className="mb-32"
+            >
+              <h2 className="text-5xl font-bold text-center mb-16 relative inline-block">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                  Featured Projects
+                </span>
+                <motion.div 
+                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 1.2, duration: 0.8 }}
+                />
+              </h2>
+              
+              <motion.div
+                variants={containerVariants}
+                initial="hidden"
+                animate="visible"
+                className="space-y-24"
+              >
+                {showcaseProjects.map((project, index) => (
+                  <motion.div
+                    key={index}
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="relative"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl" />
+                    <DiagonalProjectShowcase project={project} index={index} />
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+
+            {/* Software Projects */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1.2 }}
+              className="space-y-24"
+            >
+              <h2 className="text-5xl font-bold text-center mb-16 relative inline-block">
+                <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+                  Software Solutions
+                </span>
+                <motion.div 
+                  className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
+                  initial={{ scaleX: 0 }}
+                  animate={{ scaleX: 1 }}
+                  transition={{ delay: 1.4, duration: 0.8 }}
+                />
+              </h2>
+              
+              {softwareProjects.map((project, index) => (
                 <motion.div
                   key={index}
-                  className="w-full md:w-1/2 lg:w-1/3 p-4"
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: index * 0.2 }}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.8 }}
+                  className="relative group"
                 >
-                  <div className="group relative rounded-xl overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-gray-900/90 group-hover:from-transparent group-hover:to-gray-900/95 transition-all duration-300" />
-                    <ProjectCard
-                      project={project}
-                      isActive={index === currentProject}
-                      onClick={() => setCurrentProject(index)}
-                    />
-                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <SoftwareProjectShowcase 
+                    project={project} 
+                    index={index} 
+                    reverse={index % 2 === 0} 
+                  />
                 </motion.div>
               ))}
             </motion.div>
           </div>
-        </div>
-
-        {/* Featured Projects */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1 }}
-          className="mb-32"
-        >
-          <h2 className="text-5xl font-bold text-center mb-16 relative inline-block">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-              Featured Projects
-            </span>
-            <motion.div 
-              className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 1.2, duration: 0.8 }}
-            />
-          </h2>
-          
-          <motion.div
-            variants={containerVariants}
-            initial="hidden"
-            animate="visible"
-            className="space-y-24"
-          >
-            {showcaseProjects.map((project, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.8 }}
-                className="relative"
-              >
-                <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl" />
-                <DiagonalProjectShowcase project={project} index={index} />
-              </motion.div>
-            ))}
-          </motion.div>
-        </motion.div>
-
-        {/* Software Projects */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1.2 }}
-          className="space-y-24"
-        >
-          <h2 className="text-5xl font-bold text-center mb-16 relative inline-block">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
-              Software Solutions
-            </span>
-            <motion.div 
-              className="absolute -bottom-2 left-0 w-full h-1 bg-gradient-to-r from-blue-500 to-purple-500"
-              initial={{ scaleX: 0 }}
-              animate={{ scaleX: 1 }}
-              transition={{ delay: 1.4, duration: 0.8 }}
-            />
-          </h2>
-          
-          {softwareProjects.map((project, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.8 }}
-              className="relative group"
-            >
-              <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              <SoftwareProjectShowcase 
-                project={project} 
-                index={index} 
-                reverse={index % 2 === 0} 
-              />
-            </motion.div>
-          ))}
-        </motion.div>
-      </div>
-    </section>
+        </section>
         <section id='achievements' className="mb-32">
-        <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
+          <h2 className="text-5xl font-bold text-center mb-20 relative overflow-hidden">
           <span className="inline-block relative after:content-[''] after:absolute after:w-full after:h-1 after:bg-gradient-to-r after:from-blue-500 after:to-purple-600 after:bottom-0 after:left-0">
             Our Milestones
           </span>
