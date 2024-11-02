@@ -3,7 +3,7 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion'
 import Image from 'next/image'
-import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail, CheckCircle, User, Sparkles, Brain } from 'lucide-react'
+import { ChevronLeft, ChevronRight, ExternalLink, Github, Terminal, Database, Cloud, Cpu, Globe, Zap, Globe2, CpuIcon, Globe2Icon, ChartBar, Linkedin, Twitter, Facebook, Phone, Mail, CheckCircle, User, Sparkles, Brain, X, Menu } from 'lucide-react'
 import FuchsiaBackground from './components/Background'
 import ProfessionalContactForm from './components/Contact'
 import Link from 'next/link'
@@ -214,6 +214,8 @@ export default function AdvancedAIProjectsShowcase() {
 
   const { scrollYProgress } = useScroll();
   const y = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+
 
   // Animation variants
   const containerVariants = {
@@ -414,11 +416,14 @@ export default function AdvancedAIProjectsShowcase() {
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-950/90 backdrop-filter backdrop-blur-lg border-b border-gray-800/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-20">
+            {/* Logo */}
             <div className="flex items-center">
               <a href="#" className="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400">
                 AI Solutions
               </a>
             </div>
+
+            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
               {['Home', 'Projects', 'Achievements'].map((item) => (
                 <a
@@ -427,16 +432,64 @@ export default function AdvancedAIProjectsShowcase() {
                   className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 hover:bg-gray-800/50 hover:text-white text-gray-300 relative group"
                 >
                   {item}
-                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100"></span>
+                  <span className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-blue-500 to-purple-500 transform scale-x-0 transition-transform duration-300 group-hover:scale-x-100" />
                 </a>
               ))}
-              <button onClick={() => setShowContactForm(true)} className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105">
+              <button
+                onClick={() => setShowContactForm(true)}
+                className="px-6 py-2.5 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm font-medium transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/25 hover:scale-105"
+              >
                 Contact Us
+              </button>
+            </div>
+
+            {/* Mobile Menu Button */}
+            <div className="md:hidden">
+              <button
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                className="p-2 rounded-lg text-gray-300 hover:bg-gray-800/50"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
             </div>
           </div>
         </div>
+
+        {/* Mobile Navigation */}
+        <AnimatePresence>
+          {isMenuOpen && (
+            <motion.div
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="md:hidden bg-gray-950/90 border-t border-gray-800/50"
+            >
+              <div className="px-4 pt-2 pb-4 space-y-2">
+                {['Home', 'Projects', 'Achievements'].map((item) => (
+                  <a
+                    key={item}
+                    href={`#${item.toLowerCase()}`}
+                    className="block px-4 py-3 rounded-lg text-sm font-medium text-gray-300 hover:bg-gray-800/50 hover:text-white"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {item}
+                  </a>
+                ))}
+                <button
+                  onClick={() => {
+                    setShowContactForm(true);
+                    setIsMenuOpen(false);
+                  }}
+                  className="w-full px-6 py-3 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg text-sm font-medium"
+                >
+                  Contact Us
+                </button>
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </nav>
+
 
       <AnimatePresence>
         {showNotification && (
