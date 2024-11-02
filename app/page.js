@@ -394,7 +394,7 @@ export default function AdvancedAIProjectsShowcase() {
   }, []);
 
   return (
-    <div className="relative min-h-screen bg-black text-white overflow-hidden flex flex-col">
+    <div className="relative min-h-screen bg-gradient-to-b from-gray-950 via-gray-900 to-gray-950 text-white overflow-hidden flex flex-col">
       {/* Navigation */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-gray-900 bg-opacity-80 backdrop-filter backdrop-blur-lg">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
