@@ -710,10 +710,10 @@ export default function AdvancedAIProjectsShowcase() {
           <h2 className="text-4xl font-bold text-center mb-12">
             Technologies We Master
           </h2>
-      <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
-        Our team leverages cutting-edge technologies to deliver innovative AI solutions. 
-        Here is a glimpse into our tech stack:
-      </p>
+          <p className="text-center text-gray-400 mb-16 max-w-2xl mx-auto">
+            Our team leverages cutting-edge technologies to deliver innovative AI solutions. 
+            Here is a glimpse into our tech stack:
+          </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 px-4">
         {technologies.map((tech, index) => (
           <motion.div
