@@ -1,5 +1,7 @@
 import localFont from "next/font/local";
 import "./globals.css";
+import { icons } from "lucide-react";
+import Head from "next/head";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -13,13 +15,16 @@ const geistMono = localFont({
 });
 
 export const metadata = {
-  title: "Click",
-  description: "Empowering Hispanic businesses with cutting-edge AI solutions.",
+  title: "Nexify",
+  description: "Empowering Hispanic businesses with cutting-edge AI solutions."
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href='/nnn.png' type="image/png" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
