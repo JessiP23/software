@@ -131,6 +131,7 @@ const DiagonalProjectShowcase = ({ project, index }) => {
   )
 }
 
+// software project showcase
 const SoftwareProjectShowcase = ({ project }) => {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
