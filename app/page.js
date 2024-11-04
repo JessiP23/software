@@ -133,6 +133,7 @@ const DiagonalProjectShowcase = ({ project, index }) => {
 
 // software project showcase
 const SoftwareProjectShowcase = ({ project }) => {
+  // Ref for intersection observer
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
     target: ref,
