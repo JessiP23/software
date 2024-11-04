@@ -19,6 +19,7 @@ export const metadata = {
   description: "Empowering Hispanic businesses with cutting-edge AI solutions."
 };
 
+// root
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
