@@ -41,6 +41,7 @@ const Icon = ({ name, color }) => {
   return icons[name] || null
 }
 
+// project card
 const ProjectCard = ({ project, isActive, onClick }) => (
   <motion.div
     whileHover={{ scale: 1.02, rotateY: 5 }}
