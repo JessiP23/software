@@ -3,6 +3,7 @@ import "./globals.css";
 import { icons } from "lucide-react";
 import Head from "next/head";
 
+// local font
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
