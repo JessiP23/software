@@ -78,6 +78,7 @@ const ProjectCard = ({ project, isActive, onClick }) => (
   </motion.div>
 )
 
+// diagonal project showcase
 const DiagonalProjectShowcase = ({ project, index }) => {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({
