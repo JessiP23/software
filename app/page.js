@@ -8,6 +8,7 @@ import FuchsiaBackground from './components/Background'
 import ProfessionalContactForm from './components/Contact'
 import Link from 'next/link'
 
+// icons
 const Icon = ({ name, color }) => {
   const icons = {
     Cpu: (
